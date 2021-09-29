@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FDE937"
+    tools:context=".MainActivity">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/left_line"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.13"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/right_line"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.87"/>
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="88dp"
+        android:layout_marginLeft="88dp"
+        android:layout_marginTop="88dp"
+        android:fontFamily="@font/bmdohyun"
+        android:src="@drawable/kakao"
+        android:textColor="@color/black"
+        android:textSize="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/et_putID"
+        android:layout_width="303dp"
+        android:layout_height="60dp"
+        android:background="@drawable/rounded"
+        android:ems="10"
+        android:hint="   Your ID"
+        android:inputType="textPersonName"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/left_line"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.424" />
+
+    <EditText
+        android:background="@drawable/rounded"
+        android:id="@+id/et_putPW"
+        android:layout_width="303dp"
+        android:layout_height="60dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="   Password"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="@+id/et_putID"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/et_putID"
+        app:layout_constraintTop_toBottomOf="@+id/et_putID" />
+
+    <TextView
+        android:id="@+id/tv_SIgnIn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="192dp"
+        android:fontFamily="@font/bmdohyun"
+        android:text="Sign in"
+        android:textColor="@color/black"
+        android:textSize="35dp"
+        android:layout_marginLeft="-10dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/left_line"
+        app:layout_constraintHorizontal_bias="0.127" />
+
+    <ImageView
+        android:id="@+id/iv_signUp"
+        android:layout_width="78dp"
+        android:layout_height="9dp"
+        android:layout_marginBottom="64dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.162"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/rectangle" />
+
+    <ImageView
+        android:id="@+id/iv_forgetPw"
+        android:layout_width="159dp"
+        android:layout_height="9dp"
+        android:layout_marginBottom="64dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="@id/right_line"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:srcCompat="@drawable/rectangle2" />
+
+    <TextView
+        android:id="@+id/tv_signUpButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="회원 가입"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_signUp"
+        app:layout_constraintEnd_toEndOf="@+id/iv_signUp"
+        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintStart_toStartOf="@+id/iv_signUp" />
+
+    <TextView
+        android:id="@+id/tv_forgetPassword"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textStyle="bold"
+        android:layout_marginRight="5dp"
+        android:text="비밀번호를 잃어버렸어요"
+        app:layout_constraintRight_toRightOf="@id/right_line"
+        app:layout_constraintBottom_toBottomOf="@+id/iv_forgetPw" />
+
+    <ImageButton
+        android:id="@+id/ib_next"
+        android:layout_width="64dp"
+        android:layout_height="64dp"
+        android:layout_marginEnd="52dp"
+        android:layout_marginRight="52dp"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        app:layout_constraintBottom_toBottomOf="@+id/tv_SIgnIn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_SIgnIn"
+        app:layout_constraintVertical_bias="0.521"
+        app:srcCompat="@drawable/circle" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
