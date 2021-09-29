@@ -8,10 +8,9 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:theme="@style/Theme.Chat_App">
-        <meta-data
-            android:name="com.google.android.actions"
-            android:resource="@xml/bottom_nav_menu" />
+        android:theme="@android:style/Theme.NoTitleBar">>
+        <activity android:name=".MyPageActivity"></activity>
+        <activity android:name=".FriendListActivity" />
 
         <activity android:name=".HomeActivity" />
         <activity android:name=".JoinActivity" />
