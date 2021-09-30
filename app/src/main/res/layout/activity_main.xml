@@ -75,7 +75,7 @@
         app:layout_constraintHorizontal_bias="0.127" />
 
     <ImageView
-        android:id="@+id/iv_signUp"
+        android:id="@+id/iv_join"
         android:layout_width="78dp"
         android:layout_height="9dp"
         android:layout_marginBottom="64dp"
@@ -96,7 +96,7 @@
         app:srcCompat="@drawable/rectangle2" />
 
     <TextView
-        android:id="@+id/tv_signUpButton"
+        android:id="@+id/tv_join"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="회원 가입"

@@ -40,7 +40,7 @@
         app:layout_constraintLeft_toLeftOf="@id/left_line"
         app:layout_constraintTop_toBottomOf="@+id/tv_title" />
 
-    <EditText
+        <EditText
         android:id="@+id/et_RegisterId"
         android:layout_width="303dp"
         android:layout_height="50dp"
@@ -74,6 +74,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="80dp"
         android:fontFamily="@font/bmdohyun"
+        android:textColor="@color/black"
         android:text="회원 가입"
         android:textSize="30dp"
         app:layout_constraintLeft_toLeftOf="@id/left_line"
@@ -113,6 +114,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="돌아가기"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="@+id/imageView5"
         app:layout_constraintEnd_toEndOf="@+id/imageView5"
         app:layout_constraintStart_toStartOf="@+id/imageView5" />
