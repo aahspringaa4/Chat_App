@@ -13,19 +13,24 @@
         android:layout_height="0dp"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.13"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/right_line"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.87"/>
 
     <TextView
         android:id="@+id/tv_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="36dp"
-        android:layout_marginLeft="36dp"
+        android:layout_marginLeft="-12dp"
         android:layout_marginTop="110dp"
         android:fontFamily="@font/bmdohyun"
-        android:text=" Create ID"
+        android:text="Create ID"
         android:textColor="@color/black"
         android:textSize="50dp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/left_line"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
@@ -84,13 +89,12 @@
         android:id="@+id/ib_Register"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:layout_marginEnd="48dp"
-        android:layout_marginRight="48dp"
+        android:layout_marginRight="-5dp"
         android:adjustViewBounds="true"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
         app:layout_constraintBottom_toBottomOf="@+id/tv_signUp"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintRight_toRightOf="@id/right_line"
         app:layout_constraintTop_toTopOf="@+id/tv_signUp"
         app:layout_constraintVertical_bias="0.464"
         app:srcCompat="@drawable/circle" />
@@ -99,14 +103,9 @@
         android:id="@+id/imageView5"
         android:layout_width="78dp"
         android:layout_height="9dp"
-        android:layout_marginStart="295dp"
-        android:layout_marginLeft="295dp"
-        android:layout_marginEnd="38dp"
-        android:layout_marginRight="38dp"
         android:layout_marginBottom="34dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintRight_toRightOf="@id/right_line"
         app:srcCompat="@drawable/rectangle" />
 
     <TextView
