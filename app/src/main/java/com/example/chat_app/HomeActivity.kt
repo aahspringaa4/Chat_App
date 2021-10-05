@@ -19,5 +19,6 @@ class HomeActivity : AppCompatActivity() {
             val intent = Intent(this, FriendListActivity::class.java)
             startActivity(intent)
         }
+
     }
 }
