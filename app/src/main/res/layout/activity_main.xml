@@ -23,14 +23,13 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="88dp"
-        android:layout_marginLeft="88dp"
-        android:layout_marginTop="88dp"
+        android:layout_marginTop="72dp"
         android:fontFamily="@font/bmdohyun"
         android:src="@drawable/kakao"
         android:textColor="@color/black"
         android:textSize="40dp"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/left_line"
+        app:layout_constraintRight_toRightOf="@id/right_line"
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
@@ -43,6 +42,7 @@
         android:textColorHint="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="@id/left_line"
+        app:layout_constraintRight_toRightOf="@id/right_line"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.424" />
 
@@ -56,34 +56,35 @@
         android:textColorHint="@color/black"
         android:hint="   Password"
         android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="@+id/et_putID"
+        app:layout_constraintLeft_toLeftOf="@id/left_line"
+        app:layout_constraintRight_toRightOf="@id/right_line"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/et_putID"
         app:layout_constraintTop_toBottomOf="@+id/et_putID" />
 
     <TextView
         android:id="@+id/tv_SIgnIn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="192dp"
+        android:layout_marginLeft="-10dp"
+        android:layout_marginRight="40dp"
+        android:layout_marginBottom="200dp"
         android:fontFamily="@font/bmdohyun"
         android:text="Sign in"
         android:textColor="@color/black"
         android:textSize="35dp"
-        android:layout_marginLeft="-10dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.006"
         app:layout_constraintLeft_toLeftOf="@id/left_line"
-        app:layout_constraintHorizontal_bias="0.127" />
+        app:layout_constraintRight_toRightOf="@id/right_line" />
 
     <ImageView
         android:id="@+id/iv_join"
         android:layout_width="78dp"
         android:layout_height="9dp"
+        android:layout_marginLeft="12dp"
         android:layout_marginBottom="64dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.198"
-        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/left_line"
         app:srcCompat="@drawable/rectangle" />
 
     <ImageView
@@ -125,13 +126,13 @@
         android:id="@+id/ib_next"
         android:layout_width="64dp"
         android:layout_height="64dp"
-        android:layout_marginEnd="52dp"
-        android:layout_marginRight="52dp"
+        android:layout_marginLeft="235dp"
         android:adjustViewBounds="true"
         android:background="@android:color/transparent"
         android:scaleType="fitCenter"
+        app:layout_constraintRight_toRightOf="@id/right_line"
         app:layout_constraintBottom_toBottomOf="@+id/tv_SIgnIn"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="@id/left_line"
         app:layout_constraintTop_toTopOf="@+id/tv_SIgnIn"
         app:layout_constraintVertical_bias="0.521"
         app:srcCompat="@drawable/circle" />
