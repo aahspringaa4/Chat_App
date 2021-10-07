@@ -66,7 +66,7 @@
 
     <LinearLayout
         android:id="@+id/linearLayout"
-        android:layout_width="match_parent"
+        android:layout_width="420dp"
         android:layout_height="90dp"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -74,29 +74,34 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageButton
-            android:layout_width="wrap_content"
+            android:id="@+id/iv_frinend"
+            android:layout_width="140dp"
             android:layout_height="match_parent"
             android:adjustViewBounds="true"
+            android:layout_marginLeft="14dp"
+            android:layout_marginRight="-12dp"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
             android:src="@drawable/friend"></ImageButton>
 
         <ImageButton
-            android:layout_width="wrap_content"
+            android:id="@+id/chat"
+            android:layout_width="140dp"
             android:layout_height="match_parent"
             android:adjustViewBounds="true"
+            android:layout_marginLeft="-1dp"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
             android:src="@drawable/chatting"></ImageButton>
 
         <ImageButton
-            android:layout_width="wrap_content"
+            android:layout_width="140dp"
             android:layout_height="match_parent"
             android:adjustViewBounds="true"
+            android:layout_marginLeft="-15dp"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
             android:src="@drawable/mypage"></ImageButton>
-
     </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
