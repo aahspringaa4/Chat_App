@@ -76,7 +76,7 @@
         app:layout_constraintStart_toStartOf="parent">
 
         <ImageButton
-            android:id="@+id/iv_frinend"
+            android:id="@+id/frinend"
             android:layout_width="140dp"
             android:layout_height="match_parent"
             android:adjustViewBounds="true"
@@ -87,6 +87,7 @@
             android:src="@drawable/friend"></ImageButton>
 
         <ImageButton
+            android:id="@+id/chat"
             android:layout_width="140dp"
             android:layout_height="match_parent"
             android:adjustViewBounds="true"
@@ -96,6 +97,7 @@
             android:src="@drawable/chatting"></ImageButton>
 
         <ImageButton
+            android:id="@+id/my"
             android:layout_width="140dp"
             android:layout_height="match_parent"
             android:adjustViewBounds="true"
