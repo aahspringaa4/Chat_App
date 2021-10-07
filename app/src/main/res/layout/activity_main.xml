@@ -40,9 +40,9 @@
         android:ems="10"
         android:hint="   Your ID"
         android:textColorHint="@color/black"
+        android:layout_marginLeft="-17dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="@id/left_line"
-        app:layout_constraintRight_toRightOf="@id/right_line"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.424" />
 
@@ -57,7 +57,7 @@
         android:hint="   Password"
         android:inputType="textPersonName"
         app:layout_constraintLeft_toLeftOf="@id/left_line"
-        app:layout_constraintRight_toRightOf="@id/right_line"
+        android:layout_marginLeft="-17dp"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintTop_toBottomOf="@+id/et_putID" />
 
@@ -81,7 +81,7 @@
         android:id="@+id/iv_join"
         android:layout_width="78dp"
         android:layout_height="9dp"
-        android:layout_marginLeft="12dp"
+        android:layout_marginLeft="5dp"
         android:layout_marginBottom="64dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="@id/left_line"
@@ -92,6 +92,7 @@
         android:layout_width="159dp"
         android:layout_height="9dp"
         android:layout_marginBottom="64dp"
+        android:layout_marginLeft="-5dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintRight_toRightOf="@id/right_line"
         app:layout_constraintHorizontal_bias="0.666"
