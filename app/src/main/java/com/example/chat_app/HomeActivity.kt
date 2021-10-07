@@ -1,6 +1,5 @@
 package com.example.chat_app
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.chat_app.databinding.ActivityHomeBinding
@@ -15,10 +14,16 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.ivFrinend.setOnClickListener {
-            val intent = Intent(this, FriendListActivity::class.java)
-            startActivity(intent)
+        binding.frinend.setOnClickListener {
+            supportFragmentManager.beginTransaction() .replace(R.id.view, FriendList()) .commit()
         }
 
+        binding.my.setOnClickListener {
+            supportFragmentManager.beginTransaction() .replace(R.id.view, Mypage()) .commit()
+        }
+
+        binding.chat.setOnClickListener {
+            supportFragmentManager.beginTransaction() .replace(R.id.view, home()) .commit()
+        }
     }
 }
