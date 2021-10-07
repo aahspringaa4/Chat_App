@@ -16,8 +16,7 @@ class JoinActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.ibRegister.setOnClickListener {
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+            finish()
         }
     }
 }
