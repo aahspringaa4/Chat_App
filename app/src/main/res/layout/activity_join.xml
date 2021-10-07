@@ -42,6 +42,7 @@
         android:hint="   이름을 입력해주세요"
         android:inputType="textPersonName"
         android:textColorHint="#605F5F"
+        android:layout_marginLeft="-20dp"
         app:layout_constraintLeft_toLeftOf="@id/left_line"
         app:layout_constraintTop_toBottomOf="@+id/tv_title" />
 
