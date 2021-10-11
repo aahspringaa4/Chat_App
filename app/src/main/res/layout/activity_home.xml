@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     android:background="#FDE937"
     tools:context=".HomeActivity">
-
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/left_line"
         android:layout_width="0dp"
