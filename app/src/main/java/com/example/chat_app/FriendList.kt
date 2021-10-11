@@ -21,7 +21,7 @@ class FriendList : Fragment() {
             R.layout.activity_friend_list,
             container,
             false
-        
+
         ) //frag1과 연결시켜 return해줌.
     }
 }
