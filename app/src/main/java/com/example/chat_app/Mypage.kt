@@ -16,6 +16,7 @@ class Mypage : Fragment() {
             R.layout.activity_my_page,
             container,
             false
+
         ) //frag3과 연결시켜 return해줌.
     }
 }
