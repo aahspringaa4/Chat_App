@@ -6,11 +6,6 @@
 ---
 ## 개발중;;
 
-### Develope content
----
-#### 클라이언트 : 유현명
-#### 서버 : 외주
-
 ### Tool
 ---
 #### Android Studio
