@@ -1,4 +1,4 @@
-package com.example.chat_app.fragment
+package com.example.chat_app.ui.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
