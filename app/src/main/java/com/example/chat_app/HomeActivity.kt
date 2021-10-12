@@ -2,6 +2,7 @@ package com.example.chat_app
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import com.example.chat_app.databinding.ActivityHomeBinding
 import com.example.chat_app.databinding.ActivityMainBinding
 
@@ -14,16 +15,32 @@ class HomeActivity : AppCompatActivity() {
         binding = ActivityHomeBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.frinend.setOnClickListener {
-            supportFragmentManager.beginTransaction() .replace(R.id.view, FriendList()) .commit()
-        }
-
-        binding.my.setOnClickListener {
-            supportFragmentManager.beginTransaction() .replace(R.id.view, Mypage()) .commit()
-        }
+        setFrag(0)
 
         binding.chat.setOnClickListener {
-            supportFragmentManager.beginTransaction() .replace(R.id.view, home()) .commit()
+            setFrag(0)
+        }
+
+        binding.frinend.setOnClickListener {
+            setFrag(1)
+        }
+        binding.my.setOnClickListener {
+            setFrag(2)
+        }
+    }
+
+    private fun setFrag(fragnum : Int) {
+        val ft = supportFragmentManager.beginTransaction()
+        when(fragnum){
+            0 -> {
+                ft.replace(R.id.main_frame, home()).commit()
+            }
+            1 -> {
+                ft.replace(R.id.main_frame, FriendList()).commit()
+            }
+            1 -> {
+                ft.replace(R.id.main_frame, Mypage()).commit()
+            }
         }
     }
 }
