@@ -10,18 +10,12 @@ import com.example.chat_app.databinding.ActivityFriendListBinding
 import com.example.chat_app.databinding.ActivityJoinBinding
 
 class FriendList : Fragment() {
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
 
-    ): View? {
-        return inflater.inflate(
-            R.layout.activity_friend_list,
-            container,
-            false
 
-        ) //frag1과 연결시켜 return해줌.
+        val view = inflater.inflate(R.layout.activity_friend_list, container, false) //frag1과 연결시켜 return해줌.
+
+        return view
     }
 }
