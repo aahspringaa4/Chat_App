@@ -54,63 +54,16 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <androidx.recyclerview.widget.RecyclerView
-        android:layout_width="match_parent"
-        android:layout_height="530dp"
-        android:layout_marginTop="112dp"
+        android:layout_width="410dp"
+        android:layout_height="629dp"
+        android:layout_marginTop="200dp"
+        android:layout_marginBottom="1dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0"
         tools:listitem="@layout/friend_item_view" />
-
-    <FrameLayout
-        android:id="@+id/view"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent">
-
-        <LinearLayout
-            android:id="@+id/linearLayout"
-            android:layout_width="420dp"
-            android:layout_height="90dp"
-            android:orientation="horizontal"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent">
-
-            <ImageButton
-                android:id="@+id/frinend"
-                android:layout_width="140dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="14dp"
-                android:layout_marginRight="-12dp"
-                android:adjustViewBounds="true"
-                android:background="@android:color/transparent"
-                android:scaleType="fitCenter"
-                android:src="@drawable/friend"></ImageButton>
-
-            <ImageButton
-                android:id="@+id/chat"
-                android:layout_width="140dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="-1dp"
-                android:adjustViewBounds="true"
-                android:background="@android:color/transparent"
-                android:scaleType="fitCenter"
-                android:src="@drawable/chatting"></ImageButton>
-
-            <ImageButton
-                android:id="@+id/my"
-                android:layout_width="140dp"
-                android:layout_height="match_parent"
-                android:layout_marginLeft="-15dp"
-                android:adjustViewBounds="true"
-                android:background="@android:color/transparent"
-                android:scaleType="fitCenter"
-                android:src="@drawable/mypage"></ImageButton>
-        </LinearLayout>
-    </FrameLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
