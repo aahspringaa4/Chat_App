@@ -11,6 +11,7 @@
         android:orientation="horizontal">
 
         <ImageView
+            android:id="@+id/profiles"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_gravity="center_vertical"
@@ -31,6 +32,7 @@
                 android:orientation="horizontal">
 
                 <TextView
+                    android:id="@+id/id"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="명철이 형"
@@ -38,16 +40,19 @@
                     android:textSize="24sp"></TextView>
 
                 <TextView
+                    android:id="@+id/people"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center_vertical"
                     android:layout_marginLeft="10dp"
+                    android:layout_marginTop="1dp"
                     android:text="2"
                     android:textColor="#858484"
                     android:textSize="19sp"></TextView>
             </LinearLayout>
 
             <TextView
+                android:id="@+id/content"
                 android:layout_width="wrap_content"
                 android:layout_height="30dp"
                 android:layout_marginTop="12dp"
