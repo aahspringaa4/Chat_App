@@ -1,9 +1,8 @@
-package com.example.chat_app.ui.Login
+package com.example.chat_app.ui.login
 
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import com.example.chat_app.ui.HomeActivity
 import com.example.chat_app.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

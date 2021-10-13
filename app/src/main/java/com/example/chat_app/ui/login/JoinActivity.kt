@@ -1,4 +1,4 @@
-package com.example.chat_app.ui.Login
+package com.example.chat_app.ui.login
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity

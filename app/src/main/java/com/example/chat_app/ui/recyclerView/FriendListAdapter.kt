@@ -1,4 +1,4 @@
-package com.example.chat_app.ui.RecyclerView
+package com.example.chat_app.ui.recyclerView
 
 
 import android.content.Context

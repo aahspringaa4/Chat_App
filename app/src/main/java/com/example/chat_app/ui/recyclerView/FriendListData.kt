@@ -1,4 +1,4 @@
-package com.example.chat_app.ui.RecyclerView
+package com.example.chat_app.ui.recyclerView
 
 class FriendListData (
     val id : String,
