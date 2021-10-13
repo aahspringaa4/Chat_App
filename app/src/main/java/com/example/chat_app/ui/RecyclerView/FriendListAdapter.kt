@@ -11,9 +11,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.chat_app.R
 
-class FriendListAdapter(private val context: Context) : RecyclerView.Adapter<FriendListAdapter.ViewHolder>() {
-
+class FriendListAdapter(private val context: Context?) : RecyclerView.Adapter<FriendListAdapter.ViewHolder>() {
     var datas = mutableListOf<FriendListData>()
+
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.friend_item_view,parent,false)
         return ViewHolder(view)
