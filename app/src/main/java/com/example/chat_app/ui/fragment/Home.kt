@@ -17,7 +17,7 @@ class home : Fragment() {
     val datas = mutableListOf<ChattingListData>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val view = inflater.inflate(R.layout.activity_chat, container, false) //frag1과 연결시켜 return해줌.
+        val view = inflater.inflate(R.layout.activity_chatlist, container, false) //frag1과 연결시켜 return해줌.
         rv = view.findViewById(R.id.rv)
         initRecycler()
         return view
