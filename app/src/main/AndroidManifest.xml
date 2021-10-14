@@ -9,10 +9,10 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".ui.login.HomeActivity"></activity>
-        <activity android:name=".ui.login.JoinActivity" />
-        <activity android:name=".ui.login.MainActivity">
-
+        <activity android:name=".ui.Activity.ChattingActivity"></activity>
+        <activity android:name=".ui.Activity.login.HomeActivity" />
+        <activity android:name=".ui.Activity.login.JoinActivity" />
+        <activity android:name=".ui.Activity.login.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

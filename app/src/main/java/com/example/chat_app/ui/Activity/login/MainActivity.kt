@@ -1,4 +1,4 @@
-package com.example.chat_app.ui.login
+package com.example.chat_app.ui.Activity.login
 
 import android.content.Intent
 import android.os.Bundle
