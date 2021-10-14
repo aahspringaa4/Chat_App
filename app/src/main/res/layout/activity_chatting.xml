@@ -1,9 +1,89 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#95C1D5"
     tools:context=".ui.activity.ChattingActivity">
 
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/left_line"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.05"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/left_line2"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.25"/>
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/right_line"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.94"/>
+        <ImageButton
+            android:id="@+id/backbutton"
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:adjustViewBounds="true"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/ic_baseline_arrow_back_24"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/left_line"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/id"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="명철이 형"
+            android:gravity="center_vertical"
+            android:textSize="25sp"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/left_line2"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:layout_marginLeft="12dp"
+            android:gravity="center_vertical"
+            android:text="2"
+            android:textColor="#5A5959"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/id"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageButton
+            android:layout_width="55dp"
+            android:layout_height="55dp"
+            android:src="@drawable/ic_menu"
+            android:adjustViewBounds="true"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="@id/right_line"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    
 </androidx.constraintlayout.widget.ConstraintLayout>
