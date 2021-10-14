@@ -2,6 +2,7 @@ package com.example.chat_app.ui.recyclerview
 
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,6 +11,8 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.chat_app.R
+import com.example.chat_app.ui.activity.ChattingActivity
+import com.example.chat_app.ui.activity.ImageActivity
 
 class FriendListAdapter(private val context: Context?) : RecyclerView.Adapter<FriendListAdapter.ViewHolder>() {
     var datas = mutableListOf<FriendListData>()
@@ -35,6 +38,15 @@ class FriendListAdapter(private val context: Context?) : RecyclerView.Adapter<Fr
             tv_content.text = item.content
             tv_id.text = item.id.toString()
             Glide.with(itemView).load(item.img).into(imgProfile)
+            itemView.setOnClickListener {
+                Intent(context, ImageActivity::class.java).apply {
+                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                }.run {
+                    if (context != null) {
+                        context.startActivity(this)
+                    }
+                }
+            }
 
         }
     }

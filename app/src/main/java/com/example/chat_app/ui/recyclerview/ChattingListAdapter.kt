@@ -1,6 +1,7 @@
 package com.example.chat_app.ui.recyclerview
 
 import android.content.Context
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,10 +10,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.chat_app.R
-import org.w3c.dom.Text
+import com.example.chat_app.ui.activity.ChattingActivity
 
-class ChattingAdapter(private val context: Context?) : RecyclerView.Adapter<ChattingAdapter.ViewHolder>() {
-    var datas = mutableListOf<ChattingData>()
+class ChattingListAdapter(private val context: Context?) : RecyclerView.Adapter<ChattingListAdapter.ViewHolder>() {
+    var datas = mutableListOf<ChattingListData>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.chatting_item_view,parent,false)
@@ -32,12 +33,21 @@ class ChattingAdapter(private val context: Context?) : RecyclerView.Adapter<Chat
         private val imgProfile: ImageView = itemView.findViewById(R.id.profiles)
         private val tv_people: TextView = itemView.findViewById(R.id.people)
 
-        fun bind(item: ChattingData) {
+        fun bind(item: ChattingListData) {
             tv_content.text = item.content
             tv_id.text = item.id
             tv_people.text = item.people
             Glide.with(itemView).load(item.img).into(imgProfile)
 
+            itemView.setOnClickListener {
+                Intent(context, ChattingActivity::class.java).apply {
+                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                }.run {
+                    if (context != null) {
+                        context.startActivity(this)
+                    }
+                }
+            }
         }
     }
 

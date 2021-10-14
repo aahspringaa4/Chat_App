@@ -8,13 +8,13 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.chat_app.R
-import com.example.chat_app.ui.recyclerview.ChattingAdapter
-import com.example.chat_app.ui.recyclerview.ChattingData
+import com.example.chat_app.ui.recyclerview.ChattingListAdapter
+import com.example.chat_app.ui.recyclerview.ChattingListData
 
 class home : Fragment() {
     lateinit var rv: RecyclerView
-    lateinit var ChattingAdapter: ChattingAdapter
-    val datas = mutableListOf<ChattingData>()
+    lateinit var ChattingAdapter: ChattingListAdapter
+    val datas = mutableListOf<ChattingListData>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.activity_chat, container, false) //frag1과 연결시켜 return해줌.
@@ -24,12 +24,12 @@ class home : Fragment() {
     }
 
     private fun initRecycler() {
-        ChattingAdapter = ChattingAdapter(context)
+        ChattingAdapter = ChattingListAdapter(context)
         rv.adapter = ChattingAdapter
 
 
         datas.apply {
-            add(ChattingData(img = R.drawable.dream, id = "명철이 형", content = "1일 1커밋", people = "2명"))
+            add(ChattingListData(img = R.drawable.dream, id = "명철이 형", content = "1일 1커밋", people = "2명"))
             Log.d("결과", "성공")
 //            add(FriendListData(img = R.drawable.profile3, name = "jenny", age = 26))
 //            add(FriendListData(img = R.drawable.profile2, name = "jhon", age = 27))

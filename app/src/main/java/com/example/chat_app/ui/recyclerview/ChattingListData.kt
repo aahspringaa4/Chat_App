@@ -1,6 +1,6 @@
 package com.example.chat_app.ui.recyclerview
 
-class ChattingData (
+class ChattingListData (
     val id : String,
     val content : String,
     val people : String,
