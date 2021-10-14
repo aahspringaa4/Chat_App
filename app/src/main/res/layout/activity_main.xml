@@ -24,7 +24,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="72dp"
-        android:fontFamily="@font/bmdohyun"
         android:src="@drawable/kakao"
         android:textColor="@color/black"
         android:textSize="40dp"
