@@ -1,11 +1,12 @@
 package com.example.chat_app.ui.activity.login
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.example.chat_app.R
 import com.example.chat_app.databinding.ActivityHomeBinding
+import com.example.chat_app.ui.activity.MypageActivity
 import com.example.chat_app.ui.fragment.FriendList
-import com.example.chat_app.ui.fragment.Mypage
 import com.example.chat_app.ui.fragment.home
 
 class HomeActivity : AppCompatActivity() {
@@ -26,8 +27,10 @@ class HomeActivity : AppCompatActivity() {
         binding.frinend.setOnClickListener {
             setFrag(1)
         }
+
         binding.my.setOnClickListener {
-            setFrag(2)
+            val intent = Intent(this, MypageActivity::class.java)
+            startActivity(intent)
         }
     }
 
@@ -39,9 +42,6 @@ class HomeActivity : AppCompatActivity() {
             }
             1 -> {
                 ft.replace(R.id.main_frame, FriendList()).commit()
-            }
-            2 -> {
-                ft.replace(R.id.main_frame, Mypage()).commit()
             }
         }
     }
