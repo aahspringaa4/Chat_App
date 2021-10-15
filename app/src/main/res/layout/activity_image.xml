@@ -27,6 +27,7 @@
         android:layout_height="1dp"
         android:orientation="horizontal"
         app:layout_constraintGuide_percent="0.57" />
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/top_line3"
         android:layout_width="match_parent"
@@ -35,8 +36,8 @@
         app:layout_constraintGuide_percent="0.84" />
 
     <ImageButton
-        android:layout_width="60dp"
-        android:layout_height="60dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         app:layout_constraintLeft_toLeftOf="@id/left_line"
         android:src="@drawable/cancel"
         android:adjustViewBounds="true"
@@ -46,8 +47,8 @@
 
     <ImageButton
         android:id="@+id/profiles"
-        android:layout_width="120dp"
-        android:layout_height="120dp"
+        android:layout_width="110dp"
+        android:layout_height="110dp"
         android:src="@drawable/profile"
         android:adjustViewBounds="true"
         android:background="@android:color/transparent"
@@ -62,7 +63,7 @@
         android:text="유현명"
         android:textColor="@color/white"
         android:textSize="22sp"
-        android:layout_marginTop="10dp"
+        android:layout_marginTop="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@id/profiles" />
@@ -86,7 +87,7 @@
             android:layout_width="1dp"
             android:layout_height="match_parent"
             android:orientation="vertical"
-            app:layout_constraintGuide_percent="0.19" />
+            app:layout_constraintGuide_percent="0.17" />
 
         <androidx.constraintlayout.widget.Guideline
             android:id="@+id/left_line3"
@@ -100,12 +101,33 @@
             android:layout_width="match_parent"
             android:layout_height="1dp"
             android:orientation="horizontal"
-            app:layout_constraintGuide_percent="0.1" />
+            app:layout_constraintGuide_begin="10dp" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/right_line3"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.84" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/right_line4"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.8" />
+
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/top_line5"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:orientation="horizontal"
+            app:layout_constraintGuide_percent="0.9" />
 
         <ImageButton
             android:id="@+id/talk"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
             android:adjustViewBounds="true"
             android:background="@android:color/transparent"
             android:scaleType="fitCenter"
@@ -118,8 +140,29 @@
             android:layout_height="18dp"
             android:text="채팅 불러오기"
             android:layout_marginTop="-5dp"
+            android:gravity="center"
             app:layout_constraintLeft_toLeftOf="@id/left_line2"
             app:layout_constraintTop_toBottomOf="@id/talk" />
+
+        <ImageButton
+            android:id="@+id/profileedit"
+            android:layout_width="65dp"
+            android:layout_height="65dp"
+            android:adjustViewBounds="true"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            android:src="@drawable/profileedit"
+            app:layout_constraintTop_toTopOf="@id/top_line4"
+            app:layout_constraintRight_toRightOf="@id/right_line4"/>
+
+        <TextView
+            android:layout_width="90dp"
+            android:layout_height="18dp"
+            android:layout_marginTop="-5dp"
+            android:gravity="center"
+            android:text="프로필 수정"
+            app:layout_constraintRight_toRightOf="@id/right_line3"
+            app:layout_constraintTop_toBottomOf="@+id/profileedit" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 
