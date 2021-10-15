@@ -4,6 +4,8 @@
 
 ### MVC 아키택쳐 사용
 
+### Socket, HTTP 사용
+
 ### Information
 ---
 ## 개발중
