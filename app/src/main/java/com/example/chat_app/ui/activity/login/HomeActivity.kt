@@ -40,7 +40,7 @@ class HomeActivity : AppCompatActivity() {
             1 -> {
                 ft.replace(R.id.main_frame, FriendList()).commit()
             }
-            1 -> {
+            2 -> {
                 ft.replace(R.id.main_frame, Mypage()).commit()
             }
         }
