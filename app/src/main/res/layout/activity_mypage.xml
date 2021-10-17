@@ -136,6 +136,7 @@
             app:layout_constraintLeft_toLeftOf="@id/left_line3" />
 
         <TextView
+            android:id="@+id/tv_chat"
             android:layout_width="90dp"
             android:layout_height="18dp"
             android:text="나와의 채팅"
