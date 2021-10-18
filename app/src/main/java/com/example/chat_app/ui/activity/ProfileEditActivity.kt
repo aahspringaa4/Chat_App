@@ -13,5 +13,19 @@ class ProfileEditActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityProfileEditBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        binding.backbutton.setOnClickListener {
+            finish()
+        }
+
+        binding.check.setOnClickListener {
+            finish()
+            changename()
+        }
+    }
+
+    private fun changename(){
+
     }
 }
+
