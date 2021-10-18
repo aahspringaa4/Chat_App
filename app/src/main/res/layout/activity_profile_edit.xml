@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -70,12 +71,13 @@
 
 
         <TextView
+            android:id="@+id/check"
             android:layout_width="55dp"
             android:layout_height="55dp"
             android:gravity="center"
             android:text="확인"
             android:textColor="@color/black"
-            android:textSize="23sp"
+            android:textSize="22sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintRight_toRightOf="@id/right_line"
             app:layout_constraintTop_toTopOf="parent" />
@@ -95,12 +97,39 @@
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.045" />
 
-    <Con
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/right_line3"
+        android:layout_width="1dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.955" />
+
     <EditText
-        android:layout_width="wrap_content"
-        android:layout_height="40dp"
+        android:id="@+id/editText"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:padding="10dp"
+        android:backgroundTint="#B6ADAD"
+        android:paddingLeft="0dp"
         android:hint="명철이 형"
-        android:textColorHint="#A39B9B"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintEnd_toStartOf="@+id/right_line3"
         app:layout_constraintLeft_toLeftOf="@id/left_line3"
-        app:layout_constraintTop_toTopOf="@id/top_line"/>
+        app:layout_constraintStart_toStartOf="@+id/left_line3"
+        app:layout_constraintTop_toTopOf="@id/top_line" />
+
+    <ImageButton
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="20dp"
+        android:adjustViewBounds="true"
+        android:background="@android:color/transparent"
+        android:scaleType="fitCenter"
+        android:src="@drawable/cancelback"
+        app:layout_constraintBottom_toBottomOf="@+id/editText"
+        app:layout_constraintEnd_toStartOf="@+id/right_line3"
+        app:layout_constraintTop_toTopOf="@+id/top_line"
+        android:layout_marginRight="20dp" />
 </androidx.constraintlayout.widget.ConstraintLayout>
