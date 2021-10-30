@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#95C1D5"
-    tools:context=".ui.activity.ChattingActivity">
+    tools:context="ui.activity.ChattingActivity">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout

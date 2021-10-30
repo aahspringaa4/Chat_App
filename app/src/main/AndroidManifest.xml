@@ -9,13 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar">
-        <activity android:name=".ui.activity.ProfileEditActivity"></activity>
-        <activity android:name=".ui.activity.MypageActivity" />
-        <activity android:name=".ui.activity.ImageActivity" />
-        <activity android:name=".ui.activity.ChattingActivity" />
-        <activity android:name=".ui.activity.login.HomeActivity" />
-        <activity android:name=".ui.activity.login.JoinActivity" />
-        <activity android:name=".ui.activity.login.MainActivity">
+        <activity android:name="ui.activity.ProfileEditActivity"></activity>
+        <activity android:name="ui.activity.MypageActivity" />
+        <activity android:name="ui.activity.ImageActivity" />
+        <activity android:name="ui.activity.ChattingActivity" />
+        <activity android:name="ui.activity.login.HomeActivity" />
+        <activity android:name="ui.activity.login.JoinActivity" />
+        <activity android:name="ui.activity.login.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

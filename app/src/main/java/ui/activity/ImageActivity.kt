@@ -1,10 +1,8 @@
-package com.example.chat_app.ui.activity
+package ui.activity
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.chat_app.R
-import com.example.chat_app.databinding.ActivityHomeBinding
 import com.example.chat_app.databinding.ActivityImageBinding
 
 class ImageActivity : AppCompatActivity() {
