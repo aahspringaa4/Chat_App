@@ -1,0 +1,4 @@
+package remote
+
+object ApiProvider {
+}
