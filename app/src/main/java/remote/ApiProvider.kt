@@ -1,4 +1,0 @@
-package remote
-
-object ApiProvider {
-}
