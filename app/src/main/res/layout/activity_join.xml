@@ -13,6 +13,7 @@
         android:layout_height="0dp"
         android:orientation="vertical"
         app:layout_constraintGuide_percent="0.13"/>
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/right_line"
         android:layout_width="0dp"
@@ -34,12 +35,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/et_RegisterName"
+        android:id="@+id/et_RegisterBirth"
         android:layout_width="303dp"
         android:layout_height="50dp"
         android:layout_marginTop="80dp"
         android:background="@drawable/rounded2"
-        android:hint="   이름을 입력해주세요"
+        android:hint="   생년월일을 입력해주세요"
         android:inputType="textPersonName"
         android:textColorHint="#605F5F"
         android:layout_marginLeft="-20dp"
@@ -47,32 +48,47 @@
         app:layout_constraintTop_toBottomOf="@+id/tv_title" />
 
         <EditText
-        android:id="@+id/et_RegisterId"
+        android:id="@+id/et_RegisterPhone"
         android:layout_width="303dp"
         android:layout_height="50dp"
         android:layout_marginTop="15dp"
         android:background="@drawable/rounded2"
-        android:hint="   Your ID"
+        android:hint="   핸드폰 번호"
         android:inputType="textPersonName"
         android:textColorHint="#605F5F"
-        app:layout_constraintEnd_toEndOf="@+id/et_RegisterName"
+        app:layout_constraintEnd_toEndOf="@+id/et_RegisterBirth"
         app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/et_RegisterName"
-        app:layout_constraintTop_toBottomOf="@+id/et_RegisterName" />
+        app:layout_constraintStart_toStartOf="@+id/et_RegisterBirth"
+        app:layout_constraintTop_toBottomOf="@+id/et_RegisterBirth" />
 
-    <EditText
-        android:textColorHint="#605F5F"
-        android:id="@+id/et_RegisterPw"
+    <Spinner
+        android:id="@+id/ChooseSex"
         android:layout_width="303dp"
         android:layout_height="50dp"
-        android:background="@drawable/rounded2"
+        android:layout_gravity="center"
+        android:layout_marginLeft="25dp"
         android:layout_marginTop="15dp"
-        android:hint="   Password"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="@+id/et_RegisterId"
+        android:entries="@array/gender"
+        android:spinnerMode="dialog"
+        android:background="@drawable/rounded2"
+        app:layout_constraintEnd_toEndOf="@+id/et_RegisterPhone"
         app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/et_RegisterId"
-        app:layout_constraintTop_toBottomOf="@+id/et_RegisterId" />
+        app:layout_constraintStart_toStartOf="@+id/et_RegisterPhone"
+        app:layout_constraintTop_toBottomOf="@+id/et_RegisterPhone" />
+
+    <TextView
+        android:id="@+id/et_RegisterSex"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="성별 선택"
+        android:textColor="#605F5F"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/ChooseSex"
+        app:layout_constraintEnd_toEndOf="@+id/ChooseSex"
+        app:layout_constraintHorizontal_bias="0.063"
+        app:layout_constraintStart_toStartOf="@+id/ChooseSex"
+        app:layout_constraintTop_toTopOf="@+id/ChooseSex"
+        app:layout_constraintVertical_bias="0.518" />
 
     <TextView
         android:id="@+id/tv_signUp"
@@ -81,10 +97,11 @@
         android:layout_marginTop="80dp"
         android:fontFamily="@font/bmdohyun"
         android:textColor="@color/black"
-        android:text="회원 가입"
+        android:text="다음 화면"
         android:textSize="30dp"
+        android:layout_marginLeft="10dp"
         app:layout_constraintLeft_toLeftOf="@id/left_line"
-        app:layout_constraintTop_toBottomOf="@+id/et_RegisterPw" />
+        app:layout_constraintTop_toBottomOf="@+id/et_RegisterSex" />
 
     <ImageButton
         android:id="@+id/ib_Register"
