@@ -1,3 +1,6 @@
 package model
 
-data class Data()
+data class Data(
+    val accessToken: String,
+    val refreshToken: String
+)
