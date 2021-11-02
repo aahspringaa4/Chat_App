@@ -1,3 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <String-array name = "gender">
+        <item>
+            남성
+        </item>
+        <item>
+            여성
+        </item>
+    </String-array>
 </resources>
