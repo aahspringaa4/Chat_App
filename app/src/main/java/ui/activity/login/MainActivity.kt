@@ -19,7 +19,7 @@ import retrofit2.Response
 class MainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityMainBinding
-    var username: String? = null
+    var id: String? = null
     var password: String? = null
     var token: String? = null
     var user_id: Int? = null
@@ -50,12 +50,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun Login() {
-        username = binding.etPutID.getText().toString()
+        id = binding.etPutID.getText().toString()
         password = binding.etPutPW.getText().toString()
 
         hideKeyboard()
 
-        if (username.isNullOrBlank() || password.isNullOrBlank()) {
+        if (id.isNullOrBlank() || password.isNullOrBlank()) {
             Toast.makeText(this@MainActivity, "올바른 로그인 정보를 입력해주세요.", Toast.LENGTH_SHORT).show()
         } else {
             LoginResponse()
@@ -70,11 +70,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun LoginResponse() {
-        val username: String = binding.etPutID.getText().toString()
+
+        val id: String = binding.etPutID.getText().toString()
         val password: String = binding.etPutPW.getText().toString()
 
         // 정보 저장
-        val requestLogin = RequestLoginDTO(username, password)
+        val requestLogin = RequestLoginDTO(id, password)
 
         retrofitClient = RetrofitClient.getInstance()
 
@@ -82,17 +83,18 @@ class MainActivity : AppCompatActivity() {
 
         ApiService?.Login(requestLogin)?.enqueue(object : Callback<ResponseLoginDTO?> {
             override fun onResponse(
-                call: Call<ResponseLoginDTO?>?,
+                call: Call<ResponseLoginDTO?>,
                 response: Response<ResponseLoginDTO?>
             ) {
+                Log.d("error", "error1")
                 if (response.isSuccessful && response.body() != null) {
-                    val result: ResponseLoginDTO = response.body()!!
 
                     if (response.code() == 200) {
-                        Toast.makeText(this@MainActivity, username + "님 환영합니다.", Toast.LENGTH_SHORT)
+                        Toast.makeText(this@MainActivity, id + "님 환영합니다.", Toast.LENGTH_SHORT)
                             .show()
-                        token = response.body()!!.getToken()
-                        user_id = response.body()!!.getUser_id()
+                        var count = response.body()?.count
+                        var data = response.body()?.data
+
                         startActivity(Intent(this@MainActivity, HomeActivity::class.java))
                     }
                     if (response.code() == 401) {
@@ -112,7 +114,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<ResponseLoginDTO?>?, t: Throwable?) {
-
+                Log.d("error","${t}")
             }
         })
     }

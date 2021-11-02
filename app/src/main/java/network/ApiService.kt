@@ -10,6 +10,8 @@ interface ApiService {
 
     // 로그인
     @POST("api/auth/login")
-    fun Login(@Body requestLoginDTO: RequestLoginDTO?): Call<ResponseLoginDTO?>?
+    fun Login(
+        @Body requestLoginDTO: RequestLoginDTO
+    ): Call<ResponseLoginDTO>
 
 }
