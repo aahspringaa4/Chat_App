@@ -103,12 +103,6 @@ class MainActivity : AppCompatActivity() {
                             "로그인에 실패하였습니다.\n(아이디 또는 비밀번호를 다시 확인해주세요)",
                             Toast.LENGTH_SHORT
                         ).show()
-                    } else {
-                        Toast.makeText(
-                            this@MainActivity,
-                            "예기치 못한 오류가 발생했습니다.\n고객센터에 문의해주세요.",
-                            Toast.LENGTH_SHORT
-                        ).show()
                     }
                 }
             }
