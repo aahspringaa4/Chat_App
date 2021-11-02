@@ -1,15 +1,16 @@
 package ui.activity.login
 
-import ApiService
+import network.ApiService
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.chat_app.databinding.ActivityMainBinding
 import model.RequestLoginDTO
 import model.ResponseLoginDTO
-import remote.RetrofitClient
+import network.RetrofitClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -20,8 +21,8 @@ class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
     var username: String? = null
     var password: String? = null
-    var token:String? = null
-    var user_id:Int?= null
+    var token: String? = null
+    var user_id: Int? = null
     private var ApiService: ApiService? = null
     private var retrofitClient: RetrofitClient? = null
 
@@ -52,7 +53,7 @@ class MainActivity : AppCompatActivity() {
         username = binding.etPutID.getText().toString()
         password = binding.etPutPW.getText().toString()
 
-//        hideKeyboard()
+        hideKeyboard()
 
         if (username.isNullOrBlank() || password.isNullOrBlank()) {
             Toast.makeText(this@MainActivity, "올바른 로그인 정보를 입력해주세요.", Toast.LENGTH_SHORT).show()
@@ -80,11 +81,11 @@ class MainActivity : AppCompatActivity() {
         ApiService = RetrofitClient.getRetrofitInterface()
 
         ApiService?.Login(requestLogin)?.enqueue(object : Callback<ResponseLoginDTO?> {
-
-            override fun onResponse(call: Call<ResponseLoginDTO?>?, response: Response<ResponseLoginDTO?>) {
-
-                if (response.isSuccessful() && response.body() != null) {
-
+            override fun onResponse(
+                call: Call<ResponseLoginDTO?>?,
+                response: Response<ResponseLoginDTO?>
+            ) {
+                if (response.isSuccessful && response.body() != null) {
                     val result: ResponseLoginDTO = response.body()!!
 
                     if (response.code() == 200) {
@@ -110,7 +111,9 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
-            override fun onFailure(call: Call<ResponseLoginDTO?>?, t: Throwable?) {}
+            override fun onFailure(call: Call<ResponseLoginDTO?>?, t: Throwable?) {
+
+            }
         })
     }
 }

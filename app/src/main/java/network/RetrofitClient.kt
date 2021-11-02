@@ -1,10 +1,7 @@
-package remote
+package network
 
-import ApiService
-import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-
 
 object RetrofitClient {
     private var instance: RetrofitClient? = null
