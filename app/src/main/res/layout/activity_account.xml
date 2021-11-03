@@ -1,128 +1,179 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="true"
     android:background="#FDE937"
     tools:context="ui.activity.login.AccountActivity">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/left_line"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.13"/>
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/right_line"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.87"/>
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/left_line"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.13" />
 
-    <TextView
-        android:id="@+id/tv_title"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="-12dp"
-        android:layout_marginTop="110dp"
-        android:fontFamily="@font/bmdohyun"
-        android:text="Create ID"
-        android:textColor="@color/black"
-        android:textSize="50dp"
-        app:layout_constraintLeft_toLeftOf="@id/left_line"
-        app:layout_constraintTop_toTopOf="parent" />
+        <androidx.constraintlayout.widget.Guideline
+            android:id="@+id/right_line"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:orientation="vertical"
+            app:layout_constraintGuide_percent="0.87" />
 
-    <EditText
-        android:id="@+id/et_RegisterName"
-        android:layout_width="303dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="80dp"
-        android:background="@drawable/rounded2"
-        android:hint="이름을 입력해주세요"
-        android:padding="12dp"
-        android:inputType="textNoSuggestions"
-        android:textColorHint="#605F5F"
-        android:layout_marginLeft="-20dp"
-        app:layout_constraintLeft_toLeftOf="@id/left_line"
-        app:layout_constraintTop_toBottomOf="@+id/tv_title" />
+        <EditText
+            android:id="@+id/et_RegisterBirth"
+            android:layout_width="303dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="-20dp"
+            android:layout_marginTop="44dp"
+            android:background="@drawable/rounded2"
+            android:hint="생년월일을 입력해주세요"
+            android:inputType="textNoSuggestions"
+            android:padding="12dp"
+            android:textColorHint="#605F5F"
+            app:layout_constraintLeft_toLeftOf="@id/left_line"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title" />
 
-    <EditText
-        android:id="@+id/et_RegisterId"
-        android:layout_width="303dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="15dp"
-        android:background="@drawable/rounded2"
-        android:hint="Your ID"
-        android:padding="12dp"
-        android:inputType="textNoSuggestions"
-        android:textColorHint="#605F5F"
-        app:layout_constraintEnd_toEndOf="@+id/et_RegisterName"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/et_RegisterName"
-        app:layout_constraintTop_toBottomOf="@+id/et_RegisterName" />
+        <EditText
+            android:id="@+id/et_RegisterPhone"
+            android:layout_width="303dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/rounded2"
+            android:hint="핸드폰 번호"
+            android:inputType="textNoSuggestions"
+            android:padding="12dp"
+            android:textColorHint="#605F5F"
+            app:layout_constraintEnd_toEndOf="@+id/et_RegisterBirth"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/et_RegisterBirth"
+            app:layout_constraintTop_toBottomOf="@+id/et_RegisterBirth" />
 
-    <EditText
-        android:id="@+id/et_RegisterPw"
-        android:layout_width="303dp"
-        android:layout_height="50dp"
-        android:background="@drawable/rounded2"
-        android:layout_marginTop="15dp"
-        android:hint="Password"
-        android:padding="12dp"
-        android:textColorHint="#605F5F"
-        android:inputType="textNoSuggestions"
-        app:layout_constraintEnd_toEndOf="@+id/et_RegisterId"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="@+id/et_RegisterId"
-        app:layout_constraintTop_toBottomOf="@+id/et_RegisterId" />
+        <EditText
+            android:id="@+id/et_RegisterSex"
+            android:layout_width="303dp"
+            android:layout_height="50dp"
+            android:layout_gravity="center"
+            android:layout_marginLeft="25dp"
+            android:layout_marginTop="12dp"
+            android:background="@drawable/rounded2"
+            android:padding="12dp"
+            android:hint="성별 입력"
+            android:textColorHint="#605F5F"
+            app:layout_constraintEnd_toEndOf="@+id/et_RegisterPhone"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/et_RegisterPhone"
+            app:layout_constraintTop_toBottomOf="@+id/et_RegisterPhone" />
 
-    <TextView
-        android:id="@+id/tv_signUp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="80dp"
-        android:fontFamily="@font/bmdohyun"
-        android:textColor="@color/black"
-        android:text="Sign up"
-        android:textSize="30dp"
-        android:layout_marginLeft="10dp"
-        app:layout_constraintLeft_toLeftOf="@id/left_line"
-        app:layout_constraintTop_toBottomOf="@+id/et_RegisterPw" />
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-12dp"
+            android:layout_marginTop="56dp"
+            android:fontFamily="@font/bmdohyun"
+            android:text="Create ID"
+            android:textColor="@color/black"
+            android:textSize="50dp"
+            app:layout_constraintLeft_toLeftOf="@id/left_line"
+            app:layout_constraintTop_toTopOf="parent" />
 
-    <ImageButton
-        android:id="@+id/ib_Register"
-        android:layout_width="64dp"
-        android:layout_height="64dp"
-        android:layout_marginRight="-5dp"
-        android:adjustViewBounds="true"
-        android:background="@android:color/transparent"
-        android:scaleType="fitCenter"
-        app:layout_constraintBottom_toBottomOf="@+id/tv_signUp"
-        app:layout_constraintRight_toRightOf="@id/right_line"
-        app:layout_constraintTop_toTopOf="@+id/tv_signUp"
-        app:layout_constraintVertical_bias="0.464"
-        app:srcCompat="@drawable/circle" />
+        <EditText
+            android:id="@+id/et_RegisterName"
+            android:layout_width="303dp"
+            android:layout_height="50dp"
+            android:layout_marginLeft="-20dp"
+            android:background="@drawable/rounded2"
+            android:hint="이름을 입력해주세요"
+            android:inputType="textNoSuggestions"
+            android:padding="12dp"
+            android:layout_marginTop="12dp"
+            android:textColorHint="#605F5F"
+            app:layout_constraintLeft_toLeftOf="@id/left_line"
+            app:layout_constraintTop_toBottomOf="@+id/et_RegisterSex" />
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="78dp"
-        android:layout_height="9dp"
-        android:layout_marginBottom="34dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="@id/right_line"
-        app:srcCompat="@drawable/rectangle" />
+        <EditText
+            android:id="@+id/et_RegisterId"
+            android:layout_width="303dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/rounded2"
+            android:hint="Your ID"
+            android:inputType="textNoSuggestions"
+            android:padding="12dp"
+            android:textColorHint="#605F5F"
+            app:layout_constraintEnd_toEndOf="@+id/et_RegisterName"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/et_RegisterName"
+            app:layout_constraintTop_toBottomOf="@+id/et_RegisterName" />
 
-    <TextView
-        android:id="@+id/tv_signIn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="돌아가기"
-        android:textColor="@color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView5"
-        app:layout_constraintEnd_toEndOf="@+id/imageView5"
-        app:layout_constraintStart_toStartOf="@+id/imageView5" />
+        <EditText
+            android:id="@+id/et_RegisterPw"
+            android:layout_width="303dp"
+            android:layout_height="50dp"
+            android:layout_marginTop="15dp"
+            android:background="@drawable/rounded2"
+            android:hint="Password"
+            android:inputType="textNoSuggestions"
+            android:padding="12dp"
+            android:textColorHint="#605F5F"
+            app:layout_constraintEnd_toEndOf="@+id/et_RegisterId"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="@+id/et_RegisterId"
+            app:layout_constraintTop_toBottomOf="@+id/et_RegisterId" />
+
+        <TextView
+            android:id="@+id/tv_signUp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="4dp"
+            android:layout_marginTop="48dp"
+            android:fontFamily="@font/bmdohyun"
+            android:text="Sign up"
+            android:textColor="@color/black"
+            android:textSize="30dp"
+            app:layout_constraintLeft_toLeftOf="@id/left_line"
+            app:layout_constraintTop_toBottomOf="@+id/et_RegisterPw" />
+
+        <ImageButton
+            android:id="@+id/ib_Register"
+            android:layout_width="64dp"
+            android:layout_height="64dp"
+            android:layout_marginRight="-5dp"
+            android:adjustViewBounds="true"
+            android:background="@android:color/transparent"
+            android:scaleType="fitCenter"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_signUp"
+            app:layout_constraintRight_toRightOf="@id/right_line"
+            app:layout_constraintTop_toTopOf="@+id/tv_signUp"
+            app:layout_constraintVertical_bias="0.464"
+            app:srcCompat="@drawable/circle" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="78dp"
+            android:layout_height="9dp"
+            android:layout_marginBottom="34dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="@id/right_line"
+            app:srcCompat="@drawable/rectangle" />
+
+        <TextView
+            android:id="@+id/tv_signIn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="돌아가기"
+            android:textColor="@color/black"
+            app:layout_constraintBottom_toBottomOf="@+id/imageView5"
+            app:layout_constraintEnd_toEndOf="@+id/imageView5"
+            app:layout_constraintStart_toStartOf="@+id/imageView5" />
 
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.core.widget.NestedScrollView>

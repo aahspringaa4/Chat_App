@@ -37,12 +37,12 @@ class MainActivity : AppCompatActivity() {
         }
 
         binding.tvJoin.setOnClickListener {
-            val intent = Intent(this, JoinActivity::class.java)
+            val intent = Intent(this, AccountActivity::class.java)
             startActivity(intent)
         }
 
         binding.ivJoin.setOnClickListener {
-            val intent = Intent(this, JoinActivity::class.java)
+            val intent = Intent(this, AccountActivity::class.java)
             startActivity(intent)
         }
     }
