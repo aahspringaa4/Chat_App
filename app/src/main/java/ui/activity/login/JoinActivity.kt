@@ -23,7 +23,7 @@ class JoinActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityJoinBinding
     private lateinit var binding2: ActivityAccountBinding
-    
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityJoinBinding.inflate(layoutInflater)
@@ -36,11 +36,12 @@ class JoinActivity : AppCompatActivity() {
 
         binding.ibRegister.setOnClickListener {
 
-            val Birth: String = binding.etRegisterBirth.getText().toString()
-            val phone: String = binding.etRegisterPhone.getText().toString()
-            val sex: String = binding.etRegisterSex.getText().toString()
+            val birth: String = binding.etRegisterBirth.text.toString()
+            val phone: String = binding.etRegisterPhone.text.toString()
+            val sex: String = binding.etRegisterSex.text.toString()
 
-            if (Birth.trim { it <= ' ' }.length == 0 || phone.trim { it <= ' ' }.length == 0 || sex.trim { it <= ' ' }.length == 0 || Birth == null || phone == null || sex == null) {
+            if (birth.trim { it <= ' ' }.isEmpty() || phone.trim { it <= ' ' }.isEmpty() || sex.trim { it <= ' ' }
+                    .isEmpty()) {
                 Toast.makeText(this@JoinActivity, "올바른 정보를 입력해주세요.", Toast.LENGTH_SHORT).show()
             } else {
                 startActivity(Intent(this, AccountActivity::class.java))

@@ -3,6 +3,7 @@ package ui.activity.login
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import com.example.chat_app.R
@@ -19,7 +20,7 @@ class AccountActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityJoinBinding
     private lateinit var binding2: ActivityAccountBinding
-
+    
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -34,8 +35,13 @@ class AccountActivity : AppCompatActivity() {
 
             if (id.trim { it <= ' ' }.length == 0 || name.trim { it <= ' ' }.length == 0 || password.trim { it <= ' ' }.length == 0 || id == null || name == null || password == null) {
                 Toast.makeText(this@AccountActivity, "회원가입 정보를 옳바르게 입력해주세요.", Toast.LENGTH_SHORT).show()
+
+                Log.d("Error", "Error3")
             } else {
                 Register()
+
+
+                Log.d("Error", "Error4")
             }
         }
 
@@ -52,7 +58,10 @@ class AccountActivity : AppCompatActivity() {
 
         hideKeyboard()
 
-        if (Birth.trim { it <= ' ' }.length == 0 || phone.trim { it <= ' ' }.length == 0 || sex.trim { it <= ' ' }.length == 0 || Birth == null || phone == null || sex == null) {
+        Log.d("Error", "Error2")
+
+        if (Birth.trim { it <= ' ' }.isEmpty() || phone.trim { it <= ' ' }.isEmpty() || sex.trim { it <= ' ' }
+                .isEmpty()) {
             Toast.makeText(this@AccountActivity, "올바른 정보를 입력해주세요.", Toast.LENGTH_SHORT).show()
         } else {
             RegisterResponse()
@@ -60,20 +69,15 @@ class AccountActivity : AppCompatActivity() {
     }
 
     fun RegisterResponse() {
-        val birth: String = binding.etRegisterBirth.getText().toString().trim()
-        val phone: String = binding.etRegisterPhone.getText().toString().trim()
-        val gender: String = binding.etRegisterSex.getText().toString().trim()
+        val birth: String = binding.etRegisterBirth.text.toString().trim()
+        val phone: String = binding.etRegisterPhone.text.toString().trim()
+        val gender: String = binding.etRegisterSex.text.toString().trim()
 
-        val id: String = binding2.etRegisterId.getText().toString().trim()
-        val name: String = binding2.etRegisterName.getText().toString().trim()
-        val password: String = binding2.etRegisterPw.getText().toString().trim()
+        val id: String = binding2.etRegisterId.text.toString().trim()
+        val name: String = binding2.etRegisterName.text.toString().trim()
+        val password: String = binding2.etRegisterPw.text.toString().trim()
 
-        val address = ""
-        val detailAddress = ""
-        val addressCode = 0
-        val keyAddress = ""
-        val image = ""
-
+        Log.d("Error", "Error1")
         // 정보 저장
         val requestRegister = RequestRegisterDTO(birth, phone, gender, id, name, password)
         val retrofitClient = RetrofitClient.getInstance()
@@ -84,7 +88,7 @@ class AccountActivity : AppCompatActivity() {
                 call: Call<ResponseLoginDTO?>?,
                 response: Response<ResponseLoginDTO?>
             ) {
-                println("")
+                Log.d("Error", "Error")
                 if (response.isSuccessful && response.body() != null) {
 
                     if (response.code() === 200) {
@@ -93,6 +97,7 @@ class AccountActivity : AppCompatActivity() {
                             "회원가입이 성공적으로 완료되었습니다.",
                             Toast.LENGTH_SHORT
                         ).show()
+                        finish()
                         finish()
                     } else {
                         Toast.makeText(
