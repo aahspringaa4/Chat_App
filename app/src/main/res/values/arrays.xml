@@ -1,4 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string-array name="gender" />
+    <string-array name="gender">
+
+        <item>
+            성별 선택
+        </item>
+    <item>
+        MEN
+    </item>
+        <item>
+            WOMEN
+    </item>
+    </string-array>
 </resources>
