@@ -8,6 +8,7 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.AdapterView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.chat_app.databinding.ActivityAccountBinding
 import com.example.chat_app.databinding.ActivityJoinBinding
 import model.RequestRegisterDTO
 import model.ResponseLoginDTO
@@ -21,18 +22,29 @@ import retrofit2.Response
 class JoinActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityJoinBinding
-
+    private lateinit var binding2: ActivityAccountBinding
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityJoinBinding.inflate(layoutInflater)
+        binding2 = ActivityAccountBinding.inflate(layoutInflater)
         setContentView(binding.root)
+        setContentView(binding2.root)
 
         binding.tvSignIn.setOnClickListener {
             finish()
         }
 
         binding.ibRegister.setOnClickListener {
-            startActivity(Intent(this, AccountActivity::class.java))
+
+            val Birth: String = binding.etRegisterBirth.getText().toString()
+            val phone: String = binding.etRegisterPhone.getText().toString()
+            val sex: String = binding.etRegisterSex.getText().toString()
+
+            if (Birth.trim { it <= ' ' }.length == 0 || phone.trim { it <= ' ' }.length == 0 || sex.trim { it <= ' ' }.length == 0 || Birth == null || phone == null || sex == null) {
+                Toast.makeText(this@JoinActivity, "올바른 정보를 입력해주세요.", Toast.LENGTH_SHORT).show()
+            } else {
+                startActivity(Intent(this, AccountActivity::class.java))
+            }
         }
 
         binding.ChooseSex.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
@@ -46,7 +58,7 @@ class JoinActivity : AppCompatActivity() {
             }
 
             override fun onNothingSelected(parent: AdapterView<*>?) {
-                
+
             }
 
         }
@@ -72,8 +84,12 @@ class JoinActivity : AppCompatActivity() {
         val phone: String = binding.etRegisterPhone.getText().toString().trim()
         val gender: String = binding.etRegisterSex.getText().toString().trim()
 
+        val id: String = binding2.etRegisterId.getText().toString().trim()
+        val name: String = binding2.etRegisterName.getText().toString().trim()
+        val password: String = binding2.etRegisterPw.getText().toString().trim()
+
         // 정보 저장
-        val requestRegister = RequestRegisterDTO(birth, phone, gender)
+        val requestRegister = RequestRegisterDTO(birth, phone, gender, id, name, password)
         val retrofitClient = RetrofitClient.getInstance()
         val ApiService = RetrofitClient.getRetrofitInterface()
 
@@ -86,7 +102,11 @@ class JoinActivity : AppCompatActivity() {
                 if (response.isSuccessful() && response.body() != null) {
 
                     if (response.code() === 200) {
-                        Toast.makeText(this@JoinActivity, "회원가입이 성공적으로 완료되었습니다.", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(
+                            this@JoinActivity,
+                            "회원가입이 성공적으로 완료되었습니다.",
+                            Toast.LENGTH_SHORT
+                        ).show()
                         finish()
                     } else {
                         Toast.makeText(
