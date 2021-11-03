@@ -1,4 +1,6 @@
 package model
 
-class ResponseRegisterDTO {
-}
+data class ResponseRegisterDTO (
+    val count: String,
+    val data: TokenData
+)

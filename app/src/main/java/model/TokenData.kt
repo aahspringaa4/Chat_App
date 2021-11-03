@@ -1,4 +1,6 @@
 package model
 
-class TokenData {
-}
+data class TokenData(
+    val accessToken: String,
+    val refreshToken: String
+)
