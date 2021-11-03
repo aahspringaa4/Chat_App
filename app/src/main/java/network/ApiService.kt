@@ -19,9 +19,4 @@ interface ApiService {
     fun Register(
         @Body requestRegister: RequestRegisterDTO
     ): Call<ResponseLoginDTO>
-
-    @POST("api/auth/phone")
-    fun Phone(
-        @Body requestRegister: RequestRegisterDTO
-    ): Call<ResponseLoginDTO>
 }
