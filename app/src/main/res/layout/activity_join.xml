@@ -97,7 +97,7 @@
         android:layout_marginTop="80dp"
         android:fontFamily="@font/bmdohyun"
         android:textColor="@color/black"
-        android:text="다음 화면"
+        android:text="다음 "
         android:textSize="30dp"
         android:layout_marginLeft="10dp"
         app:layout_constraintLeft_toLeftOf="@id/left_line"
