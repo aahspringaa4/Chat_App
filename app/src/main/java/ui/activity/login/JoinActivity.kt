@@ -1,22 +1,18 @@
 package ui.activity.login
 
-import android.R.attr.password
 import android.content.Intent
+import android.graphics.Color
 import android.os.Bundle
 import android.view.View
 import android.view.inputmethod.InputMethodManager
 import android.widget.AdapterView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.chat_app.databinding.ActivityAccountBinding
 import com.example.chat_app.databinding.ActivityJoinBinding
 import model.RequestRegisterDTO
-import model.ResponseLoginDTO
-import network.ApiService
 import network.RetrofitClient
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 
 
 class JoinActivity : AppCompatActivity() {
@@ -28,7 +24,6 @@ class JoinActivity : AppCompatActivity() {
         binding = ActivityJoinBinding.inflate(layoutInflater)
         binding2 = ActivityAccountBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        setContentView(binding2.root)
 
         binding.tvSignIn.setOnClickListener {
             finish()
@@ -93,39 +88,39 @@ class JoinActivity : AppCompatActivity() {
         val retrofitClient = RetrofitClient.getInstance()
         val ApiService = RetrofitClient.getRetrofitInterface()
 
-        ApiService.Register(requestRegister).enqueue(object : Callback<ResponseLoginDTO?>() {
-            override fun onResponse(
-                call: Call<ResponseLoginDTO?>?,
-                response: Response<ResponseLoginDTO?>
-            ) {
-                println("")
-                if (response.isSuccessful() && response.body() != null) {
-
-                    if (response.code() === 200) {
-                        Toast.makeText(
-                            this@JoinActivity,
-                            "회원가입이 성공적으로 완료되었습니다.",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                        finish()
-                    } else {
-                        Toast.makeText(
-                            this@JoinActivity,
-                            "예기치 못한 오류가 발생했습니다.\n 고객센터에 문의해주세요.",
-                            Toast.LENGTH_SHORT
-                        ).show()
-                    }
-                }
-            }
-
-            override fun onFailure(call: Call<ResponseLoginDTO?>?, t: Throwable?) {
-                Toast.makeText(
-                    this@JoinActivity,
-                    "예기치 못한 오류가 발생했습니다.\n고객센터에 문의해주세요.",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-        })
+//        ApiService.Register(requestRegister).enqueue(object : Callback<ResponseLoginDTO?>() {
+//            override fun onResponse(
+//                call: Call<ResponseLoginDTO?>?,
+//                response: Response<ResponseLoginDTO?>
+//            ) {
+//                println("")
+//                if (response.isSuccessful() && response.body() != null) {
+//
+//                    if (response.code() === 200) {
+//                        Toast.makeText(
+//                            this@JoinActivity,
+//                            "회원가입이 성공적으로 완료되었습니다.",
+//                            Toast.LENGTH_SHORT
+//                        ).show()
+//                        finish()
+//                    } else {
+//                        Toast.makeText(
+//                            this@JoinActivity,
+//                            "예기치 못한 오류가 발생했습니다.\n 고객센터에 문의해주세요.",
+//                            Toast.LENGTH_SHORT
+//                        ).show()
+//                    }
+//                }
+//            }
+//
+//            override fun onFailure(call: Call<ResponseLoginDTO?>?, t: Throwable?) {
+//                Toast.makeText(
+//                    this@JoinActivity,
+//                    "예기치 못한 오류가 발생했습니다.\n고객센터에 문의해주세요.",
+//                    Toast.LENGTH_SHORT
+//                ).show()
+//            }
+//        })
     }
 
     private fun hideKeyboard() // 키보드 숨기기
