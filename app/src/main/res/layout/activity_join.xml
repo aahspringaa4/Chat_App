@@ -12,14 +12,14 @@
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.13"/>
+        app:layout_constraintGuide_percent="0.13" />
 
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/right_line"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:orientation="vertical"
-        app:layout_constraintGuide_percent="0.87"/>
+        app:layout_constraintGuide_percent="0.87" />
 
     <TextView
         android:id="@+id/tv_title"
@@ -38,23 +38,25 @@
         android:id="@+id/et_RegisterBirth"
         android:layout_width="303dp"
         android:layout_height="50dp"
+        android:layout_marginLeft="-20dp"
         android:layout_marginTop="80dp"
         android:background="@drawable/rounded2"
-        android:hint="   생년월일을 입력해주세요"
+        android:hint="생년월일을 입력해주세요"
         android:inputType="textPersonName"
+        android:padding="12dp"
         android:textColorHint="#605F5F"
-        android:layout_marginLeft="-20dp"
         app:layout_constraintLeft_toLeftOf="@id/left_line"
         app:layout_constraintTop_toBottomOf="@+id/tv_title" />
 
-        <EditText
+    <EditText
         android:id="@+id/et_RegisterPhone"
         android:layout_width="303dp"
         android:layout_height="50dp"
         android:layout_marginTop="15dp"
         android:background="@drawable/rounded2"
-        android:hint="   핸드폰 번호"
+        android:hint="핸드폰 번호"
         android:inputType="textPersonName"
+        android:padding="12dp"
         android:textColorHint="#605F5F"
         app:layout_constraintEnd_toEndOf="@+id/et_RegisterBirth"
         app:layout_constraintHorizontal_bias="0.0"
@@ -67,10 +69,11 @@
         android:layout_height="50dp"
         android:layout_gravity="center"
         android:layout_marginLeft="25dp"
-        android:layout_marginTop="15dp"
+        android:layout_marginTop="12dp"
+        android:background="@drawable/rounded2"
         android:entries="@array/gender"
         android:spinnerMode="dialog"
-        android:background="@drawable/rounded2"
+        android:padding="3dp"
         app:layout_constraintEnd_toEndOf="@+id/et_RegisterPhone"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/et_RegisterPhone"
@@ -83,6 +86,7 @@
         android:text="성별 선택"
         android:textColor="#605F5F"
         android:textSize="18sp"
+        android:visibility="invisible"
         app:layout_constraintBottom_toBottomOf="@+id/ChooseSex"
         app:layout_constraintEnd_toEndOf="@+id/ChooseSex"
         app:layout_constraintHorizontal_bias="0.063"
@@ -94,12 +98,12 @@
         android:id="@+id/tv_signUp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
         android:layout_marginTop="80dp"
         android:fontFamily="@font/bmdohyun"
-        android:textColor="@color/black"
         android:text="다음 "
+        android:textColor="@color/black"
         android:textSize="30dp"
-        android:layout_marginLeft="10dp"
         app:layout_constraintLeft_toLeftOf="@id/left_line"
         app:layout_constraintTop_toBottomOf="@+id/et_RegisterSex" />
 
