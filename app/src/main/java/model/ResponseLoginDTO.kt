@@ -1,6 +1,6 @@
 package model
 
-data class ResponseLoginDTO (
-    val count: String,
+data class  ResponseLoginDTO (
+    val count: Int,
     val data: Data
     )
