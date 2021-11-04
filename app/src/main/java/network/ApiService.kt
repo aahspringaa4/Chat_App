@@ -3,6 +3,7 @@ package network
 import model.RequestLoginDTO
 import model.RequestRegisterDTO
 import model.ResponseLoginDTO
+import model.ResponseRegisterDTO
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST
@@ -18,5 +19,5 @@ interface ApiService {
     @POST("api/auth/signup")
     fun Register(
         @Body requestRegister: RequestRegisterDTO
-    ): Call<ResponseLoginDTO>
+    ): Call<ResponseRegisterDTO>
 }
