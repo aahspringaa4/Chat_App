@@ -65,7 +65,7 @@ class AccountActivity : AppCompatActivity() {
 
         Log.d("Error", "Error1")
         // 정보 저장
-        val requestRegister = RequestRegisterDTO(birth, phone, gender, id, name, password)
+        val requestRegister = RequestRegisterDTO(birth, phone, gender, name, id, password)
         val retrofitClient = RetrofitClient.getInstance()
         val apiService = RetrofitClient.getRetrofitInterface()
 
