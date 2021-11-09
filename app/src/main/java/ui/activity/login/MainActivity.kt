@@ -7,8 +7,8 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.chat_app.databinding.ActivityMainBinding
-import model.RequestLoginDTO
-import model.ResponseLoginDTO
+import model.DTO.RequestLoginDTO
+import model.DTO.ResponseLoginDTO
 import network.ApiService
 import network.RetrofitClient
 import retrofit2.Call

@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.chat_app.R
-import ui.recyclerview.ChattingListAdapter
-import ui.recyclerview.ChattingListData
+import adpter.ChattingListAdapter
+import model.data.ChattingListData
 
 class home : Fragment() {
     lateinit var rv: RecyclerView

@@ -1,4 +1,4 @@
-package model
+package model.DTO
 
 data class ResponseRegisterDTO (
     val count: Int,

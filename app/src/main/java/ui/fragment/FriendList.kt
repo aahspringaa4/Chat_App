@@ -8,8 +8,8 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.chat_app.R
-import ui.recyclerview.FriendListAdapter
-import ui.recyclerview.FriendListData
+import adpter.FriendListAdapter
+import model.data.FriendListData
 
 class FriendList : Fragment() {
 

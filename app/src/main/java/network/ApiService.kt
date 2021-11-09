@@ -1,9 +1,9 @@
 package network
 
-import model.RequestLoginDTO
-import model.RequestRegisterDTO
-import model.ResponseLoginDTO
-import model.ResponseRegisterDTO
+import model.DTO.RequestLoginDTO
+import model.DTO.RequestRegisterDTO
+import model.DTO.ResponseLoginDTO
+import model.DTO.ResponseRegisterDTO
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.POST

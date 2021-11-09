@@ -1,4 +1,4 @@
-package ui.recyclerview
+package adpter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -10,6 +10,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.bumptech.glide.load.resource.drawable.DrawableTransitionOptions
 import com.example.chat_app.R
+import model.data.ChatData
 
 class ChatAdapter {
     var data = arrayListOf<ChatData>()

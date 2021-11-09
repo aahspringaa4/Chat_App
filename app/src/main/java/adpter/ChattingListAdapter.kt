@@ -1,5 +1,4 @@
-package ui.recyclerview
-
+package adpter
 
 import android.content.Context
 import android.content.Intent
@@ -11,13 +10,14 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.chat_app.R
-import ui.activity.ImageActivity
+import ui.activity.ChattingActivity
+import model.data.ChattingListData
 
-class FriendListAdapter(private val context: Context?) : RecyclerView.Adapter<FriendListAdapter.ViewHolder>() {
-    var datas = mutableListOf<FriendListData>()
+class ChattingListAdapter(private val context: Context?) : RecyclerView.Adapter<ChattingListAdapter.ViewHolder>() {
+    var datas = mutableListOf<ChattingListData>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val view = LayoutInflater.from(context).inflate(R.layout.friend_item_view,parent,false)
+        val view = LayoutInflater.from(context).inflate(R.layout.chatting_item_view,parent,false)
         return ViewHolder(view)
     }
 
@@ -32,13 +32,16 @@ class FriendListAdapter(private val context: Context?) : RecyclerView.Adapter<Fr
         private val tv_content: TextView = itemView.findViewById(R.id.content)
         private val tv_id: TextView = itemView.findViewById(R.id.id)
         private val imgProfile: ImageView = itemView.findViewById(R.id.profiles)
+        private val tv_people: TextView = itemView.findViewById(R.id.people)
 
-        fun bind(item: FriendListData) {
+        fun bind(item: ChattingListData) {
             tv_content.text = item.content
-            tv_id.text = item.id.toString()
+            tv_id.text = item.id
+            tv_people.text = item.people
             Glide.with(itemView).load(item.img).into(imgProfile)
+
             itemView.setOnClickListener {
-                Intent(context, ImageActivity::class.java).apply {
+                Intent(context, ChattingActivity::class.java).apply {
                     addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 }.run {
                     if (context != null) {
@@ -46,7 +49,6 @@ class FriendListAdapter(private val context: Context?) : RecyclerView.Adapter<Fr
                     }
                 }
             }
-
         }
     }
 

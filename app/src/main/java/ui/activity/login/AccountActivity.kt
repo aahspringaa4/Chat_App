@@ -6,8 +6,8 @@ import android.util.Log
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import com.example.chat_app.databinding.ActivityAccountBinding
-import model.RequestRegisterDTO
-import model.ResponseRegisterDTO
+import model.DTO.RequestRegisterDTO
+import model.DTO.ResponseRegisterDTO
 import network.RetrofitClient
 import retrofit2.Call
 import retrofit2.Callback
@@ -90,7 +90,7 @@ class AccountActivity : AppCompatActivity() {
                     } else {
                         Toast.makeText(
                             this@AccountActivity,
-                            "예기치 못한 오류가 발생했습니다.\n 고객센터에 문의해주세요.",
+                            "회원가입 형식이 잘못되었습니다.",
                             Toast.LENGTH_SHORT
                         ).show()
                     }
