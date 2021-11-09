@@ -1,4 +1,4 @@
-package adpter
+package adapter
 
 import android.content.Context
 import android.content.Intent

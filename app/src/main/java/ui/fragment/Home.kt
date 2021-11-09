@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.example.chat_app.R
-import adpter.ChattingListAdapter
+import adapter.ChattingListAdapter
 import model.data.ChattingListData
 
 class home : Fragment() {
