@@ -6,9 +6,9 @@ import android.util.Log
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import com.example.chat_app.databinding.ActivityAccountBinding
-import model.DTO.RequestRegisterDTO
-import model.DTO.ResponseRegisterDTO
-import network.RetrofitClient
+import model.dto.RequestRegisterDTO
+import model.dto.ResponseRegisterDTO
+import network.BaseApi
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -66,8 +66,8 @@ class AccountActivity : AppCompatActivity() {
         Log.d("Error", "Error1")
         // 정보 저장
         val requestRegister = RequestRegisterDTO(birth, phone, gender, name, id, password)
-        val retrofitClient = RetrofitClient.getInstance()
-        val apiService = RetrofitClient.getRetrofitInterface()
+        val retrofitClient = BaseApi.getInstance()
+        val apiService = BaseApi.getRetrofitInterface()
 
         apiService.Register(requestRegister).enqueue(object : Callback<ResponseRegisterDTO> {
 

@@ -7,10 +7,10 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.chat_app.databinding.ActivityMainBinding
-import model.DTO.RequestLoginDTO
-import model.DTO.ResponseLoginDTO
+import model.dto.RequestLoginDTO
+import model.dto.ResponseLoginDTO
 import network.ApiService
-import network.RetrofitClient
+import network.BaseApi
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
     var data: String? = null
     var count: Int? = null
     private var ApiService: ApiService? = null
-    private var retrofitClient: RetrofitClient? = null
+    private var retrofitClient: BaseApi? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,9 +75,9 @@ class MainActivity : AppCompatActivity() {
         // 정보 저장
         val requestLogin = RequestLoginDTO(id, password)
 
-        retrofitClient = RetrofitClient.getInstance()
+        retrofitClient = BaseApi.getInstance()
 
-        ApiService = RetrofitClient.getRetrofitInterface()
+        ApiService = BaseApi.getRetrofitInterface()
 
         ApiService?.Login(requestLogin)?.enqueue(object : Callback<ResponseLoginDTO?> {
             override fun onResponse(
