@@ -1,4 +1,4 @@
 package model.dto
 
-class ChattingListRequestDTO {
+class ChattingListResponseDTO {
 }

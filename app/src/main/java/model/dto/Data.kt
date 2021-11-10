@@ -1,4 +1,4 @@
-package model.DTO
+package model.dto
 
 data class Data(
     val accessToken: String,
