@@ -1,2 +1,2 @@
-package model.DTO
+package model.dto
 

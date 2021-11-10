@@ -1,6 +1,4 @@
-package model.DTO
-
-import com.google.gson.annotations.SerializedName
+package model.dto
 
 data class RequestLoginDTO(
     val id: String,
