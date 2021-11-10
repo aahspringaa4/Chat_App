@@ -1,6 +1,6 @@
 package model.data
 
-data class ChatData(
+data class ChattingData(
     val id: String,
     val message: String,
     val user : String,
