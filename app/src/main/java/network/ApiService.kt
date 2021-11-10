@@ -23,5 +23,5 @@ interface ApiService {
 
     // 채팅 리스트 조회
     @GET("api/mypage/chattingroom")
-    fun ChattingList(): Call<ChattingListResponseDTO>
+    fun ChattingList(): Call<ResponseChattingListDTO>
 }
