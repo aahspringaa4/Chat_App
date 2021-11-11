@@ -1,15 +1,31 @@
 package ui.fragment
 
+import adapter.FriendListAdapter
+import android.content.Context
+import android.content.Context.LAYOUT_INFLATER_SERVICE
+import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
+import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
+import android.widget.LinearLayout
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.chat_app.R
-import adapter.FriendListAdapter
+import com.google.gson.JsonObject
 import model.data.FriendListData
+import model.dto.ResponseFriendListDTO
+import network.ApiService
+import network.BaseApi
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
+
 
 class FriendList : Fragment() {
 
@@ -17,29 +33,48 @@ class FriendList : Fragment() {
     lateinit var friendlistAdapter: FriendListAdapter
     val datas = mutableListOf<FriendListData>()
 
+    var recyclerView: RecyclerView? = null
+
+    var FriendListAdapter: FriendListAdapter? = null
+
+    var linearLayout: LinearLayout? = null
+    var linearLayoutManager: LinearLayoutManager? = null
+    var arrayList: ArrayList<FriendListData>? = null
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.activity_friend_list, container, false) //frag1과 연결시켜 return해줌.
         rv = view.findViewById(R.id.rv)
-        initRecycler()
         return view
     }
 
-    private fun initRecycler() {
-        friendlistAdapter = FriendListAdapter(context)
-        rv.adapter = friendlistAdapter
-
-
-        datas.apply {
-            add(FriendListData(img = R.drawable.dream, id = "명철이 형", content = "1일 1커밋"))
-            Log.d("결과", "성공")
-//            add(FriendListData(img = R.drawable.profile3, name = "jenny", age = 26))
-//            add(FriendListData(img = R.drawable.profile2, name = "jhon", age = 27))
-//            add(FriendListData(img = R.drawable.profile5, name = "ruby", age = 21))
-//            add(FriendListData(img = R.drawable.profile4, name = "yuna", age = 23))
-
-            friendlistAdapter.datas = datas
-            friendlistAdapter.notifyDataSetChanged()
-
+    private fun StartSetPost(serverResponse: ResponseFriendListDTO) {
+        val totleElements: Int = serverResponse.getBoardInfos()!!.size
+        for (i in 0 until totleElements) {
+            val jsonObject: JsonObject? = serverResponse.getBoardInfos()?.get(i)
+            val name = jsonObject?.get("name").toString()
+            var content = jsonObject?.get("content").toString()
+            var profile = jsonObject?.get("profile").toString()
+            val FriendList = FriendListData(name, content, profile)
+            arrayList!!.add(FriendList)
+            FriendListAdapter?.notifyDataSetChanged()
         }
     }
+
+    override fun onResume() {
+        super.onResume()
+        arrayList?.clear()
+        FriendListAdapter?.notifyDataSetChanged()
+        val ApiService: ApiService = BaseApi.getInstance().create(ApiService::class.java)
+        val call: Call<ResponseFriendListDTO> = ApiService.FriendList(size = 10, page = 0)
+        call.enqueue(object : Callback<ResponseFriendListDTO?> {
+            override fun onResponse(call: Call<ResponseFriendListDTO?>?, response: Response<ResponseFriendListDTO?>) {
+                ResponseFriendListDTO = response.body()!!
+                StartSetPost(ResponseFriendListDTO())
+            }
+
+            override fun onFailure(call: Call<ResponseFriendListDTO?>?, t: Throwable?) {}
+        })
+    }
+
+
+
 }
