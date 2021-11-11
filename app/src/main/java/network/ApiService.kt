@@ -5,6 +5,8 @@ import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
+import retrofit2.http.Query
+import ui.fragment.FriendList
 
 
 interface ApiService {
@@ -21,7 +23,19 @@ interface ApiService {
         @Body requestRegister: RequestRegisterDTO
     ): Call<ResponseRegisterDTO>
 
-    // 채팅 리스트 조회
-    @GET("api/mypage/chattingroom")
-    fun ChattingList(): Call<ResponseChattingListDTO>
+    // 친구 추가
+    @POST("api/friend/apply/{memberId}")
+    fun FriendApply(
+        @Query("memberId") memberId : String
+    )
+
+    @GET("api/friend")
+    fun FriendList(
+
+    )
+
+    @GET("api/friend/chattingRoom/list")
+    fun ChatRoomList(
+
+    )
 }
