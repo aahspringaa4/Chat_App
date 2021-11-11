@@ -30,11 +30,7 @@ class home : Fragment() {
 
         datas.apply {
             add(ChattingListData(img = R.drawable.dream, id = "명철이 형", content = "1일 1커밋", people = "2명"))
-            Log.d("결과", "성공")
-//            add(FriendListData(img = R.drawable.profile3, name = "jenny", age = 26))
-//            add(FriendListData(img = R.drawable.profile2, name = "jhon", age = 27))
-//            add(FriendListData(img = R.drawable.profile5, name = "ruby", age = 21))
-//            add(FriendListData(img = R.drawable.profile4, name = "yuna", age = 23))
+            Log.d("결과","성공")
 
             ChattingAdapter.datas = datas
             ChattingAdapter.notifyDataSetChanged()

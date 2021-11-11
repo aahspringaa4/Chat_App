@@ -1,18 +1,11 @@
 package ui.fragment
 
 import adapter.FriendListAdapter
-import android.content.Context
-import android.content.Context.LAYOUT_INFLATER_SERVICE
-import android.content.DialogInterface
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
-import android.view.MenuItem
 import android.view.View
 import android.view.ViewGroup
-import android.widget.EditText
 import android.widget.LinearLayout
-import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -47,8 +40,8 @@ class FriendList : Fragment() {
     }
 
     private fun StartSetPost(serverResponse: ResponseFriendListDTO) {
-        val totleElements: Int = serverResponse.getBoardInfos()!!.size
-        for (i in 0 until totleElements) {
+        val totalElements: Int = serverResponse.getBoardInfos()!!.size
+        for (i in 0 until totalElements) {
             val jsonObject: JsonObject? = serverResponse.getBoardInfos()?.get(i)
             val name = jsonObject?.get("name").toString()
             var content = jsonObject?.get("content").toString()
@@ -67,11 +60,12 @@ class FriendList : Fragment() {
         val call: Call<ResponseFriendListDTO> = ApiService.FriendList(size = 10, page = 0)
         call.enqueue(object : Callback<ResponseFriendListDTO?> {
             override fun onResponse(call: Call<ResponseFriendListDTO?>?, response: Response<ResponseFriendListDTO?>) {
-                ResponseFriendListDTO = response.body()!!
                 StartSetPost(ResponseFriendListDTO())
             }
 
-            override fun onFailure(call: Call<ResponseFriendListDTO?>?, t: Throwable?) {}
+            override fun onFailure(call: Call<ResponseFriendListDTO?>?, t: Throwable?) {
+
+            }
         })
     }
 
