@@ -7,7 +7,7 @@ public class BaseApi {
     private static BaseApi instance = null;
     private static ApiService ApiService;
     //사용하고 있는 서버 BASE 주소
-    private static String baseUrl = "http://13.209.19.255:9094/";
+    private static String baseUrl = "http://92f6-211-36-140-182.ngrok.io/";
 
     private BaseApi() {
 

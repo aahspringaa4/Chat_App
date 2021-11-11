@@ -6,7 +6,6 @@ import retrofit2.http.Body
 import retrofit2.http.GET
 import retrofit2.http.POST
 import retrofit2.http.Query
-import ui.fragment.FriendList
 
 
 interface ApiService {
@@ -31,8 +30,9 @@ interface ApiService {
 
     @GET("api/friend")
     fun FriendList(
-
-    )
+        @Query("size") size : Int?,
+        @Query("page") page : Int?
+    ): Call<ResponseFriendListDTO>
 
     @GET("api/friend/chattingRoom/list")
     fun ChatRoomList(
