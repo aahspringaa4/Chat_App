@@ -1,11 +1,9 @@
 package network
 
+import android.widget.EditText
 import model.dto.*
 import retrofit2.Call
-import retrofit2.http.Body
-import retrofit2.http.GET
-import retrofit2.http.POST
-import retrofit2.http.Query
+import retrofit2.http.*
 
 
 interface ApiService {
@@ -25,7 +23,7 @@ interface ApiService {
     // 친구 추가
     @POST("api/friend/apply/{memberId}")
     fun FriendApply(
-        @Query("memberId") memberId : String
+        @Path("memberId") memberId: EditText
     )
 
     @GET("api/friend")
