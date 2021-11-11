@@ -2,7 +2,7 @@ package model.dto
 
 import com.google.gson.JsonObject
 
-class FriendListResponseDTO {
+class ResponseFriendListDTO {
     var boardInfos: List<JsonObject?>? = null
 
     @JvmName("getBoardInfos1")

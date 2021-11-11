@@ -14,7 +14,6 @@ class ChattingAdapter(val chatting  : MutableLiveData<List<ChattingData>>, val v
     private val MY_CHAT=0
     private val YOUR_CHAT=1
 
-
     inner class MyChatViewHolder(private val binding : ChatmeBinding): RecyclerView.ViewHolder(binding.root){
         fun bind(position: Int, viewModel: ChattingViewModel) {
             binding.vm = viewModel
