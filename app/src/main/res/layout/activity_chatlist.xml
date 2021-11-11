@@ -49,18 +49,6 @@
         app:layout_constraintRight_toRightOf="@id/right_line"
         app:layout_constraintTop_toTopOf="parent"></ImageView>
 
-    <ImageButton
-        android:id="@+id/imageButton"
-        android:layout_width="70dp"
-        android:layout_height="70dp"
-        android:adjustViewBounds="true"
-        android:background="@android:color/transparent"
-        android:scaleType="fitCenter"
-        android:src="@drawable/addchat"
-        app:layout_constraintBottom_toTopOf="@+id/rv"
-        app:layout_constraintRight_toRightOf="@id/right_line"
-        app:layout_constraintTop_toTopOf="parent"></ImageButton>
-
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv"
         android:layout_width="match_parent"
