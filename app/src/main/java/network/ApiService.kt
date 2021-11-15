@@ -23,8 +23,9 @@ interface ApiService {
     // 친구 추가
     @POST("api/friend/apply/{memberId}")
     fun FriendApply(
-        @Path("memberId") memberId: EditText
-    )
+        // Id 전송
+        @Path("memberId") memberId: String
+    ): Call<RequestFriendListDTO> // 오류 방지
 
     @GET("api/friend")
     fun FriendList(
