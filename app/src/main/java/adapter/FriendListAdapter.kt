@@ -24,7 +24,7 @@ class FriendListAdapter(private val context: Context?) : RecyclerView.Adapter<Fr
     override fun getItemCount(): Int = datas.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(datas[position])
+ //       holder.bind(datas[position])
     }
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -33,21 +33,21 @@ class FriendListAdapter(private val context: Context?) : RecyclerView.Adapter<Fr
         private val tv_id: TextView = itemView.findViewById(R.id.id)
         private val imgProfile: ImageView = itemView.findViewById(R.id.profiles)
 
-        fun bind(item: FriendListData) {
-            tv_content.text = item.content
-            tv_id.text = item.id.toString()
-            Glide.with(itemView).load(item.img).into(imgProfile)
-            itemView.setOnClickListener {
-                Intent(context, ImageActivity::class.java).apply {
-                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                }.run {
-                    if (context != null) {
-                        context.startActivity(this)
-                    }
-                }
-            }
-
-        }
+//        fun bind(item: FriendListData) {
+//            tv_content.text = item.content
+//            tv_id.text = item.id.toString()
+//            Glide.with(itemView).load(item.img).into(imgProfile)
+//            itemView.setOnClickListener {
+//                Intent(context, ImageActivity::class.java).apply {
+//                    addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+//                }.run {
+//                    if (context != null) {
+//                        context.startActivity(this)
+//                    }
+//                }
+//            }
+//
+//        }
     }
 
 
