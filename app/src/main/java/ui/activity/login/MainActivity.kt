@@ -10,7 +10,7 @@ import com.example.chat_app.databinding.ActivityMainBinding
 import model.dto.RequestLoginDTO
 import model.dto.ResponseLoginDTO
 import network.ApiService
-import network.BaseApi
+import network.RetrofitClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -24,7 +24,7 @@ class MainActivity : AppCompatActivity() {
     var data: String? = null
     var count: Int? = null
     private var ApiService: ApiService? = null
-    private var retrofitClient: BaseApi? = null
+    private var retrofitClient: RetrofitClient? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,9 +75,9 @@ class MainActivity : AppCompatActivity() {
         // 정보 저장
         val requestLogin = RequestLoginDTO(id, password)
 
-        retrofitClient = BaseApi.getInstance()
+        retrofitClient = RetrofitClient()
 
-        ApiService = BaseApi.getRetrofitInterface()
+        ApiService = RetrofitClient.getRetrofitInterface()
 
         ApiService?.Login(requestLogin)?.enqueue(object : Callback<ResponseLoginDTO?> {
             override fun onResponse(
@@ -90,8 +90,6 @@ class MainActivity : AppCompatActivity() {
                     if (response.code() == 200) {
                         Toast.makeText(this@MainActivity, id + "님 환영합니다.", Toast.LENGTH_SHORT)
                             .show()
-                        var count = response.body()?.count
-                        var data = response.body()?.data
 
                         startActivity(Intent(this@MainActivity, HomeActivity::class.java))
                     }
@@ -106,6 +104,7 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onFailure(call: Call<ResponseLoginDTO?>?, t: Throwable?) {
+                Log.d("error", "error10")
             }
         })
     }
