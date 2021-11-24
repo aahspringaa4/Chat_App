@@ -8,7 +8,7 @@ import android.widget.Toast
 import com.example.chat_app.databinding.ActivityAccountBinding
 import model.dto.RequestRegisterDTO
 import model.dto.ResponseRegisterDTO
-import network.BaseApi
+import network.RetrofitClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -37,7 +37,7 @@ class AccountActivity : AppCompatActivity() {
                     .isEmpty() || birth.trim { it <= ' ' }.isEmpty() || phone.trim { it <= ' ' }
                     .isEmpty() || sex.trim { it <= ' ' }
                     .isEmpty()) {
-                Toast.makeText(this@AccountActivity, "회원가입 정보를 옳바르게 입력해주세요.", Toast.LENGTH_SHORT)
+                Toast.makeText(this@AccountActivity, "회원가입 정보를 바르게 입력해주세요.", Toast.LENGTH_SHORT)
                     .show()
 
                 Log.d("Error", "Error3")
@@ -65,12 +65,12 @@ class AccountActivity : AppCompatActivity() {
 
         Log.d("Error", "Error1")
         // 정보 저장
+
         val requestRegister = RequestRegisterDTO(birth, phone, gender, name, id, password)
-        val retrofitClient = BaseApi.getInstance()
-        val apiService = BaseApi.getRetrofitInterface()
+        val retrofitClient = RetrofitClient.getInstance()
+        val apiService = RetrofitClient.getRetrofitInterface()
 
         apiService.Register(requestRegister).enqueue(object : Callback<ResponseRegisterDTO> {
-
             override fun onResponse(
                 call: Call<ResponseRegisterDTO?>,
                 response: Response<ResponseRegisterDTO?>
