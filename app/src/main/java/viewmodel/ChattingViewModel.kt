@@ -1,24 +1,14 @@
 package viewmodel
 
-import adapter.ChattingAdapter
-import android.view.View
-import androidx.lifecycle.MutableLiveData
-import model.data.ChattingData
-import network.BaseApi
-import java.net.Socket
-
 class ChattingViewModel {
 //    val user= MutableLiveData<Boolean>(true)
 //    val userVisible = MutableLiveData<Int>(View.GONE)
 //    val chattingList = MutableLiveData<List<ChattingData>>()
 //    val roomid = navigater.roomId
-//    val clubImage = MutableLiveData<String>()
-//    val clubName = navigater.clubName
-//    val clubId = navigater.clubId
 //    val index = navigater.index
 //    val fcmClicked = navigater.fcmClicked
 //    var status = ""
-//    val adapter = BaseApi.getInstance()
+//    val adapter = RetrofitClient.getInstance()
 //    val chatBody = MutableLiveData<String>()
 //    private var readChattingList = mutableListOf<ChattingData>()
 //    var possingChat = mutableListOf<ChattingData>()
@@ -143,46 +133,6 @@ class ChattingViewModel {
 //            socket.emit("send_chat", data)
 //            chatBody.value = ""
 //        }
-//    }
-//
-//    fun helper1() { // 동아리 지원
-//        val setPartCallback: (part: String) -> Unit = {
-//            if (it.isNotEmpty()) {
-//                val data = JSONObject()
-//                data.put("room_token", roomToken)
-//                data.put("major", it)
-//                socket.emit("helper_apply", data)
-//                status = "A"
-//                userVisible.value = View.GONE
-//            }
-//        }
-//        navigater.selectPart(applyTag, setPartCallback)
-//    }
-//
-//    @RequiresApi(Build.VERSION_CODES.N)
-//    fun helper2() { // 스케줄
-//        val setTimeCallback: (String, String?) -> Unit = { date: String, place: String? ->
-//            val data = JSONObject()
-//            data.put("room_token", roomToken)
-//            data.put("date", date)
-//            data.put("location", place)
-//            socket.emit("helper_schedule", data)
-//            status = "S"
-//            userVisible.value = View.VISIBLE
-//        }
-//        navigater.selectDate(setTimeCallback)
-//    }
-//
-//    fun helper3() { // 면접 결과 보내는 거 입니다!!!! 이거 club result chat에 버튼에다 ㄱㄱㄱㄱ
-//        val resultCallback: (Boolean) -> Unit = {
-//            val data = JSONObject()
-//            data.put("room_token", roomToken)
-//            data.put("result", it)
-//            socket.emit("helper_result", data)
-//            status = "R"
-//            userVisible.value = View.GONE
-//        }
-//        navigater.sendResultDialog(resultCallback)
 //    }
 //
 //    fun helper4() {
