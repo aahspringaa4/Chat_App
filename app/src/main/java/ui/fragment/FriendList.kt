@@ -8,9 +8,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
+import androidx.annotation.NonNull
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.chat_app.R
 import com.example.chat_app.databinding.ActivityFriendListBinding
 import com.google.gson.JsonObject
 import model.data.FriendListData
@@ -41,23 +43,23 @@ class FriendList : Fragment() {
     private var ApiService: ApiService? = null
     private var retrofitClient: RetrofitClient? = null
 
-    private var binding: ActivityFriendListBinding? = null
+    private lateinit var binding: ActivityFriendListBinding
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        binding = ActivityFriendListBinding.inflate(inflater, container, false)
-        return binding!!.root
+        binding = ActivityFriendListBinding.inflate(inflater)
 
-        binding!!.ivFriend.setOnClickListener {
+        binding.ivFriend.setOnClickListener {
             val intent = Intent(getActivity(), FriendAddActivity::class.java)
             startActivity(intent)
-            Log.d("error", "error1")
         }
 
-        binding!!.tvFriend.setOnClickListener {
+        binding.tvFriend.setOnClickListener {
             val intent = Intent(getActivity(), FriendAddActivity::class.java)
             startActivity(intent)
-            Log.d("error", "error2")
         }
+
+
+        return binding.root
     }
 
     private fun StartSetPost(serverResponse: ResponseFriendListDTO) {
@@ -66,8 +68,8 @@ class FriendList : Fragment() {
             val jsonObject: JsonObject? = serverResponse.getBoardInfos()?.get(i)
             val name = jsonObject?.get("name").toString()
             var content = jsonObject?.get("content").toString()
-            var profile = jsonObject?.get("profile").toString()
-            val FriendList = FriendListData(name, content, profile)
+            var img = jsonObject?.get("img").toString()
+            val FriendList = FriendListData( name, content, img)
             arrayList!!.add(FriendList)
             FriendListAdapter?.notifyDataSetChanged()
         }
