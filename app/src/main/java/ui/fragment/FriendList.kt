@@ -3,6 +3,7 @@ package ui.fragment
 import adapter.FriendListAdapter
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -40,19 +41,22 @@ class FriendList : Fragment() {
     private var ApiService: ApiService? = null
     private var retrofitClient: RetrofitClient? = null
 
+    private var binding: ActivityFriendListBinding? = null
+
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        var binding = ActivityFriendListBinding.inflate(inflater, container, false)
+        binding = ActivityFriendListBinding.inflate(inflater, container, false)
+        return binding!!.root
 
-        return binding.root
-
-        binding.ivFriend.setOnClickListener {
-            val intent = Intent(context, FriendAddActivity::class.java)
+        binding!!.ivFriend.setOnClickListener {
+            val intent = Intent(getActivity(), FriendAddActivity::class.java)
             startActivity(intent)
+            Log.d("error", "error1")
         }
 
-        binding.tvFriend.setOnClickListener {
-            val intent = Intent(context, FriendAddActivity::class.java)
+        binding!!.tvFriend.setOnClickListener {
+            val intent = Intent(getActivity(), FriendAddActivity::class.java)
             startActivity(intent)
+            Log.d("error", "error2")
         }
     }
 
