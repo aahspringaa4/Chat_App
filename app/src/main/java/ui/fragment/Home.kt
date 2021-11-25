@@ -29,7 +29,9 @@ class home : Fragment() {
 
 
         datas.apply {
-            add(ChattingListData(img = R.drawable.dream, id = "명철이 형", content = "1일 1커밋", people = "2명"))
+            add(ChattingListData(img = R.drawable.dream, id = "안진우", content = "1일 1커밋", people = "2명"))
+
+            add(ChattingListData(img = R.drawable.appicon, id = "제발되라", content = "qwer", people = "2명"))
             Log.d("결과","성공")
 
             ChattingAdapter.datas = datas
