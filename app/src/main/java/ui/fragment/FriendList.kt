@@ -8,7 +8,6 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.*
-import androidx.annotation.NonNull
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -16,7 +15,6 @@ import com.example.chat_app.R
 import com.example.chat_app.databinding.ActivityFriendListBinding
 import com.google.gson.JsonObject
 import model.data.FriendListData
-import model.dto.RequestFriendListDTO
 import model.dto.ResponseFriendListDTO
 import network.ApiService
 import network.RetrofitClient
@@ -29,15 +27,10 @@ import ui.activity.FriendAddActivity
 class FriendList : Fragment() {
 
     lateinit var rv: RecyclerView
-    lateinit var friendlistAdapter: FriendListAdapter
     val datas = mutableListOf<FriendListData>()
 
-    var recyclerView: RecyclerView? = null
 
-    var FriendListAdapter: FriendListAdapter? = null
-
-    var linearLayout: LinearLayout? = null
-    var linearLayoutManager: LinearLayoutManager? = null
+    lateinit var FriendListAdapter: FriendListAdapter
     var arrayList: ArrayList<FriendListData>? = null
 
     private var ApiService: ApiService? = null
@@ -48,6 +41,8 @@ class FriendList : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         binding = ActivityFriendListBinding.inflate(inflater)
 
+        rv = binding.rv
+        
         binding.ivFriend.setOnClickListener {
             val intent = Intent(getActivity(), FriendAddActivity::class.java)
             startActivity(intent)
@@ -58,8 +53,28 @@ class FriendList : Fragment() {
             startActivity(intent)
         }
 
+        initRecycler()
 
         return binding.root
+    }
+
+    private fun initRecycler() {
+        FriendListAdapter = FriendListAdapter(context)
+        rv.adapter = FriendListAdapter
+
+
+        datas.apply {
+            add(FriendListData( name = "안진우", content = "1일 1커밋", img = R.drawable.dream))
+
+            add(FriendListData( name = "제발되라", content = "qwer", img = R.drawable.appicon))
+
+//            add(FriendListData( name = "안드로이드", content = "소켓 어렵다 ㅠ", img = R.drawable.flower))
+            Log.d("결과","성공")
+
+            FriendListAdapter!!.datas = datas
+            FriendListAdapter!!.notifyDataSetChanged()
+
+        }
     }
 
     private fun StartSetPost(serverResponse: ResponseFriendListDTO) {
@@ -69,8 +84,8 @@ class FriendList : Fragment() {
             val name = jsonObject?.get("name").toString()
             var content = jsonObject?.get("content").toString()
             var img = jsonObject?.get("img").toString()
-            val FriendList = FriendListData( name, content, img)
-            arrayList!!.add(FriendList)
+            // val FriendList = FriendListData( name, content, img)
+            //arrayList!!.add(FriendList)
             FriendListAdapter?.notifyDataSetChanged()
         }
     }

@@ -24,9 +24,13 @@ class FriendAddActivity : AppCompatActivity() {
         binding = ActivityFriendAddBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.check.setOnClickListener{
+//        binding.check.setOnClickListener{
+//            finish()
+//            pushPost()
+//        }
+
+        binding.check.setOnClickListener {
             finish()
-            pushPost()
         }
     }
     private fun pushPost() {

@@ -13,7 +13,7 @@ import model.data.ChattingListData
 
 class home : Fragment() {
     lateinit var rv: RecyclerView
-    lateinit var ChattingAdapter: ChattingListAdapter
+    lateinit var ChattingListAdapter: ChattingListAdapter
     val datas = mutableListOf<ChattingListData>()
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
@@ -24,18 +24,20 @@ class home : Fragment() {
     }
 
     private fun initRecycler() {
-        ChattingAdapter = ChattingListAdapter(context)
-        rv.adapter = ChattingAdapter
+        ChattingListAdapter = ChattingListAdapter(context)
+        rv.adapter = ChattingListAdapter
 
 
         datas.apply {
             add(ChattingListData(img = R.drawable.dream, id = "안진우", content = "1일 1커밋", people = "2명"))
 
             add(ChattingListData(img = R.drawable.appicon, id = "제발되라", content = "qwer", people = "2명"))
+
+//            add(ChattingListData(img = R.drawable.flower, id = "안드로이드", content = "소켓 어렵다 ㅠ", people = "2명"))
             Log.d("결과","성공")
 
-            ChattingAdapter.datas = datas
-            ChattingAdapter.notifyDataSetChanged()
+            ChattingListAdapter.datas = datas
+            ChattingListAdapter.notifyDataSetChanged()
 
         }
     }
