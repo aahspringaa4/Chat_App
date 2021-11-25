@@ -8,7 +8,7 @@ public class RetrofitClient {
     private static Retrofit instance = null;
     private static ApiService ApiService;
     //사용하고 있는 서버 BASE 주소
-    private static String baseUrl = "http://13.209.19.255/9095/";
+    private static String baseUrl = "http://13.209.19.255:9094/";
 
     public static Retrofit getInstance() {
         if(instance == null) {
