@@ -37,7 +37,7 @@ class ChattingActivity : AppCompatActivity() {
     fun joinRoom() { // 방 입장 소켓
         val data = JSONObject()
         data.put("chattingRoomId", chattingRoomId)
-        socket.emit("join_room", data)
+        socket.emit("joinFriendRoom", data)
     }
 
 
@@ -47,7 +47,7 @@ class ChattingActivity : AppCompatActivity() {
             val data = JSONObject()
             data.put("chattingRoomId", chattingRoomId)
             data.put("message", message)
-            socket.emit("send_chat", data)
+            socket.emit("sendMessage", data)
             chatBody.value = ""
         }
     }
