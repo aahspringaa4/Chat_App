@@ -1,7 +1,6 @@
 package model.dto
 
 data class RequestEnterChattingRoomDTO(
-    val chattingRoomId: String,
-    val chatCategory: String,
-    val friendPk: String
+    val chattingRoomId: String = "adfbeefc-3307-4ccd-8dbf-3aa2401e4781",
+    val chatCategory: String = "GOODS"
 )
