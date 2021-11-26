@@ -3,22 +3,15 @@ package ui.activity
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import androidx.lifecycle.MutableLiveData
-import com.example.chat_app.R
 import com.example.chat_app.databinding.ActivityChattingBinding
-import kotlinx.coroutines.Dispatchers.IO
 import model.dto.RequestEnterChattingRoomDTO
 import model.dto.RequestSendMessageDTO
-import org.json.JSONObject
-import java.net.InetSocketAddress
+import network.SocketApplication
 import java.net.Socket
-import java.net.URISyntaxException
 
 class ChattingActivity : AppCompatActivity() {
 
     private lateinit var socket: Socket
-
-    var chattingRoomId: String = "adfbeefc-3307-4ccd-8dbf-3aa2401e4781"
-    var chatCategory = "GOODS"
 
     val chatBody = MutableLiveData<String>()
 
@@ -29,7 +22,9 @@ class ChattingActivity : AppCompatActivity() {
         binding = ActivityChattingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        socket = SocketApplication.get()
 
+        socket.connect()
 
         binding.btSend.setOnClickListener {
             sendChatting()
