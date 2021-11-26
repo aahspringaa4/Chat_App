@@ -6,6 +6,8 @@ import androidx.lifecycle.MutableLiveData
 import com.example.chat_app.R
 import com.example.chat_app.databinding.ActivityChattingBinding
 import kotlinx.coroutines.Dispatchers.IO
+import model.dto.RequestEnterChattingRoomDTO
+import model.dto.RequestSendMessageDTO
 import org.json.JSONObject
 import java.net.InetSocketAddress
 import java.net.Socket
@@ -27,6 +29,8 @@ class ChattingActivity : AppCompatActivity() {
         binding = ActivityChattingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+
+
         binding.btSend.setOnClickListener {
             sendChatting()
         }
@@ -39,9 +43,7 @@ class ChattingActivity : AppCompatActivity() {
     }
 
     fun joinRoom() { // 방 입장 소켓
-        val data = JSONObject()
-        data.put("chattingRoomId", chattingRoomId)
-        data.put("chatCategory", chatCategory)
+        val data = RequestEnterChattingRoomDTO()
         socket.emit("joinFriendRoom", data)
     }
 
@@ -49,9 +51,7 @@ class ChattingActivity : AppCompatActivity() {
     fun sendChatting() { // 보내기 버튼 누르면 실행 소켓
         if(!chatBody.value.isNullOrEmpty()){
             val message = chatBody.value
-            val data = JSONObject()
-            data.put("chattingRoomId", chattingRoomId)
-            data.put("message", message)
+            val data = message?.let { RequestSendMessageDTO(messages = it) }
             socket.emit("sendMessage", data)
             chatBody.value = ""
         }
