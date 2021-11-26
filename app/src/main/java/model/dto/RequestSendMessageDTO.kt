@@ -1,4 +1,6 @@
 package model.dto
 
-class RequestSendMessageDTO {
-}
+data class RequestSendMessageDTO (
+    val chattingRoomId: String,
+    val message: String
+)
