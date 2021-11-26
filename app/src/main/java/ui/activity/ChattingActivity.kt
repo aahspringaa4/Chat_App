@@ -14,8 +14,12 @@ import java.net.URISyntaxException
 class ChattingActivity : AppCompatActivity() {
 
     private lateinit var socket: Socket
+
     var chattingRoomId: String = "adfbeefc-3307-4ccd-8dbf-3aa2401e4781"
+    var chatCategory = "GOODS"
+
     val chatBody = MutableLiveData<String>()
+
     private lateinit var binding: ActivityChattingBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -23,11 +27,11 @@ class ChattingActivity : AppCompatActivity() {
         binding = ActivityChattingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        joinRoom()
-
         binding.btSend.setOnClickListener {
             sendChatting()
         }
+
+        joinRoom()
     }
 
     override fun onDestroy() {
@@ -37,6 +41,7 @@ class ChattingActivity : AppCompatActivity() {
     fun joinRoom() { // 방 입장 소켓
         val data = JSONObject()
         data.put("chattingRoomId", chattingRoomId)
+        data.put("chatCategory", chatCategory)
         socket.emit("joinFriendRoom", data)
     }
 
