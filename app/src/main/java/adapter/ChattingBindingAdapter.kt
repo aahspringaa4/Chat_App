@@ -1,4 +1,0 @@
-package adapter
-
-object ChattingBindingAdapter {
-}
