@@ -12,9 +12,9 @@ import model.dto.RequestLeaveChatDTO
 
 class ChattingActivity : AppCompatActivity() {
 
-    lateinit var socket: Socket
+    private lateinit var socket: Socket
 
-    val chatBody = MutableLiveData<String>()
+    private val chatBody = MutableLiveData<String>()
 
     private lateinit var binding: ActivityChattingBinding
 
@@ -44,13 +44,13 @@ class ChattingActivity : AppCompatActivity() {
         }
     }
 
-    fun joinRoom() { // 방 입장 소켓
+    private fun joinRoom() { // 방 입장 소켓
         val data = RequestEnterChattingRoomDTO()
         socket.emit("joinFriendRoom", data)
     }
 
 
-    fun sendChatting() { // 보내기 버튼 누르면 실행 소켓
+    private fun sendChatting() { // 보내기 버튼 누르면 실행 소켓
         if(!chatBody.value.isNullOrEmpty()){
             val message = chatBody.value
             val data = message?.let { RequestSendMessageDTO(messages = it) }
@@ -58,5 +58,4 @@ class ChattingActivity : AppCompatActivity() {
             chatBody.value = ""
         }
     }
-
 }
