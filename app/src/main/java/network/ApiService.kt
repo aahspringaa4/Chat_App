@@ -1,8 +1,11 @@
 package network
 
 import android.widget.EditText
+import io.reactivex.rxjava3.core.Single
+import model.data.ChattingData
 import model.dto.*
 import retrofit2.Call
+import retrofit2.Response
 import retrofit2.http.*
 
 
@@ -33,8 +36,15 @@ interface ApiService {
         @Query("page") page : Int?
     ): Call<ResponseFriendListDTO>
 
-    @GET("api/friend/chattingRoom/list")
+    @GET("api/mypage/chattingroom")
     fun ChatRoomList(
+        @Body chattingListDTO: RequestChattingListDTO
+    ): Call<ResponseChattingListDTO>
 
-    )
+    @GET("api/message/{chattingRoomId}/{count}")
+    fun getChatting(
+        @Path("chattingRoomId") chattingRoomId:String,
+        @Path("count") count: Int,
+        @Header("Authorization")accessToken: String
+    ): Single<Response<ArrayList<ChattingData>>>
 }
