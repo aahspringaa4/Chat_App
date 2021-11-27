@@ -8,6 +8,7 @@ import model.dto.RequestEnterChattingRoomDTO
 import model.dto.RequestSendMessageDTO
 import network.SocketApplication
 import io.socket.client.Socket
+import model.dto.RequestLeaveChatDTO
 
 class ChattingActivity : AppCompatActivity() {
 
@@ -35,6 +36,12 @@ class ChattingActivity : AppCompatActivity() {
 
     override fun onDestroy() {
         super.onDestroy()
+        try {
+            val data = RequestLeaveChatDTO()
+            socket.emit("leaveRoom", data)
+        }finally {
+
+        }
     }
 
     fun joinRoom() { // 방 입장 소켓
