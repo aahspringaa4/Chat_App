@@ -6,7 +6,6 @@ import android.os.Bundle
 import androidx.lifecycle.MutableLiveData
 import com.example.chat_app.databinding.ActivityChattingBinding
 import io.reactivex.android.schedulers.AndroidSchedulers
-import io.reactivex.rxjava3.schedulers.Schedulers
 import io.reactivex.schedulers.Schedulers
 import model.dto.RequestEnterChattingRoomDTO
 import model.dto.RequestSendMessageDTO
@@ -39,6 +38,7 @@ class ChattingActivity : AppCompatActivity() {
         }
 
         joinRoom()
+        getChatting()
     }
 
     override fun onDestroy() {
@@ -52,23 +52,30 @@ class ChattingActivity : AppCompatActivity() {
     }
 
     @SuppressLint("CheckResult")
-    private fun getChatting() { // 채팅 데이터 가져오기
-        val chattingRoomId: String = "adfbeefc-3307-4ccd-8dbf-3aa2401e4781"
-        val count:Int = 1
+    private fun getChatting() {
+        val chattingRoomId = "adfbeefc-3307-4ccd-8dbf-3aa2401e4781"
+        val count = 1
         adapter.getChatting(chattingRoomId , count)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribe(
-                
-            )
+            .subscribe( { response ->
+                if (response.isSuccessful) {
+//                    response.body()?.let { readChattingList.addAll(it) }
+//                    possingChat = readChattingList.asReversed()
+//                    chattingList.value = possingChat
+//                    chattingListAdapter.notifyDataSetChanged()
+
+                }
+            }, {
+            } )
     }
 
-    private fun joinRoom() { // 방 입장 소켓
+    private fun joinRoom() {
         val data = RequestEnterChattingRoomDTO()
         socket.emit("joinFriendRoom", data)
     }
 
-    private fun sendChatting() { // 보내기 버튼 누르면 실행 소켓
+    private fun sendChatting() {
         if(!chatBody.value.isNullOrEmpty()){
             val message = chatBody.value
             val data = message?.let { RequestSendMessageDTO(messages = it) }
