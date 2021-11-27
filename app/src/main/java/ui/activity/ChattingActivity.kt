@@ -7,11 +7,11 @@ import com.example.chat_app.databinding.ActivityChattingBinding
 import model.dto.RequestEnterChattingRoomDTO
 import model.dto.RequestSendMessageDTO
 import network.SocketApplication
-import java.net.Socket
+import io.socket.client.Socket
 
 class ChattingActivity : AppCompatActivity() {
 
-    private lateinit var socket: Socket
+    lateinit var socket: Socket
 
     val chatBody = MutableLiveData<String>()
 
