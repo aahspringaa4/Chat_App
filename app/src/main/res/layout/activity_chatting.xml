@@ -130,6 +130,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <EditText
+            android:id="@+id/et_chat"
             android:layout_width="260dp"
             android:layout_height="match_parent"
             android:backgroundTint="#ffffff"
@@ -142,6 +143,7 @@
             app:layout_constraintVertical_bias="0.4" />
 
         <TextView
+            android:id="@+id/bt_send"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:adjustViewBounds="true"

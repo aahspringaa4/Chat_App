@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.chat_app.databinding.ChatmeBinding
 import com.example.chat_app.databinding.ChatotherBinding
 import model.data.ChattingData
-import viewmodel.ChattingViewModel
 
 @Suppress("UNREACHABLE_CODE")
 class ChattingAdapter(val chatting  : MutableLiveData<List<ChattingData>>, val viewModel: ChattingViewModel, val index : Int, val name : String) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
