@@ -44,7 +44,6 @@ interface ApiService {
     @GET("api/message/{chattingRoomId}/{count}")
     fun getChatting(
         @Path("chattingRoomId") chattingRoomId:String,
-        @Path("count") count: Int,
-        @Header("Authorization")accessToken: String
+        @Path("count") count: Int
     ): Single<Response<ArrayList<ChattingData>>>
 }
