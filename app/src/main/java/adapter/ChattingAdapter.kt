@@ -7,10 +7,9 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.chat_app.databinding.ChatmeBinding
 import com.example.chat_app.databinding.ChatotherBinding
 import model.data.ChattingData
-import ui.activity.ChattingActivity
 
 @Suppress("UNREACHABLE_CODE")
-class ChattingAdapter(val chatting  : MutableLiveData<List<ChattingData>>, val index : Int, val name : String) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class ChattingAdapter(private val chattingList: MutableLiveData<List<ChattingData>>, private val index: Int) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val MY_CHAT=0
     private val YOUR_CHAT=1
 
@@ -63,25 +62,25 @@ class ChattingAdapter(val chatting  : MutableLiveData<List<ChattingData>>, val i
 
 
     override fun getItemCount(): Int {
-        return when(chatting.value){
+        return when(chattingList.value){
             null -> 0
-            else -> chatting.value!!.size
+            else -> chattingList.value!!.size
         }
     }
 
     override fun getItemViewType(position: Int): Int {
         return when(index){
             0 ->{
-                return when(chatting.value?.get(position)?.user){
-                    "true" -> MY_CHAT
-                    "false" -> YOUR_CHAT
+                return when(chattingList.value?.get(position)?.mine){
+                    true -> MY_CHAT
+                    false -> YOUR_CHAT
                     else -> 1
                 }
             }
             else -> {
-                return when(chatting.value?.get(position)?.user){
-                    "false" -> YOUR_CHAT
-                    "true" -> MY_CHAT
+                return when(chattingList.value?.get(position)?.mine){
+                    true -> YOUR_CHAT
+                    false -> MY_CHAT
 
                     else -> 1
                 }
