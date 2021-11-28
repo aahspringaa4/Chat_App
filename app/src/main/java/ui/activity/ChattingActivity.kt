@@ -1,5 +1,6 @@
 package ui.activity
 
+import adapter.ChattingAdapter
 import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
@@ -11,18 +12,22 @@ import model.dto.RequestEnterChattingRoomDTO
 import model.dto.RequestSendMessageDTO
 import network.SocketApplication
 import io.socket.client.Socket
+import model.data.ChattingData
 import model.dto.RequestLeaveChatDTO
 import network.RetrofitClient
 
-class ChattingActivity : AppCompatActivity() {
+class ChattingActivity() : AppCompatActivity() {
 
     private lateinit var socket: Socket
-
-    private val chatBody = MutableLiveData<String>()
-
     private lateinit var binding: ActivityChattingBinding
-
-    val adapter = RetrofitClient.getRetrofitInterface()
+    private lateinit var chatting: Array<String>
+    private val adapter = RetrofitClient.getRetrofitInterface()
+    private val chatBody = MutableLiveData<String>()
+    private var saveChat = mutableListOf<ChattingData>()
+    private val chattingList = MutableLiveData<List<ChattingData>>()
+    private val chattingListAdapter = ChattingAdapter(chattingList, index)
+    private var readChattingList = mutableListOf<ChattingData>()
+    private var index = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +35,6 @@ class ChattingActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         socket = SocketApplication.get()
-
         socket.connect()
 
         binding.btSend.setOnClickListener {
@@ -60,10 +64,10 @@ class ChattingActivity : AppCompatActivity() {
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe( { response ->
                 if (response.isSuccessful) {
-//                    response.body()?.let { readChattingList.addAll(it) }
-//                    possingChat = readChattingList.asReversed()
-//                    chattingList.value = possingChat
-//                    chattingListAdapter.notifyDataSetChanged()
+                    response.body()?.let { readChattingList.addAll(it) }
+                    saveChat = readChattingList.asReversed()
+                    chattingList.value = saveChat
+                    chattingListAdapter.notifyDataSetChanged()
                 }
             }, {
             } )
