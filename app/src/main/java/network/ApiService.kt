@@ -1,7 +1,7 @@
 package network
 
 import android.widget.EditText
-import io.reactivex.rxjava3.core.Single
+import io.reactivex.Single
 import model.data.ChattingData
 import model.dto.*
 import retrofit2.Call

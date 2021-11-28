@@ -54,7 +54,7 @@ class ChattingActivity : AppCompatActivity() {
     @SuppressLint("CheckResult")
     private fun getChatting() {
         val chattingRoomId = "adfbeefc-3307-4ccd-8dbf-3aa2401e4781"
-        val count = 1
+        val count = 10
         adapter.getChatting(chattingRoomId , count)
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
@@ -64,7 +64,6 @@ class ChattingActivity : AppCompatActivity() {
 //                    possingChat = readChattingList.asReversed()
 //                    chattingList.value = possingChat
 //                    chattingListAdapter.notifyDataSetChanged()
-
                 }
             }, {
             } )
