@@ -1,5 +1,6 @@
 package model.data
 
 data class ChattingData(
-    val message: String
+    private val message: String,
+    val mine: Boolean
 )
