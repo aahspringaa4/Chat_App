@@ -25,9 +25,9 @@ class ChattingActivity() : AppCompatActivity() {
     private val chatBody = MutableLiveData<String>()
     private var saveChat = mutableListOf<ChattingData>()
     private val chattingList = MutableLiveData<List<ChattingData>>()
+    private var index = 0
     private val chattingListAdapter = ChattingAdapter(chattingList, index)
     private var readChattingList = mutableListOf<ChattingData>()
-    private var index = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -75,7 +75,7 @@ class ChattingActivity() : AppCompatActivity() {
 
     private fun joinRoom() {
         val data = RequestEnterChattingRoomDTO()
-        socket.emit("joinFriendRoom", data)
+        socket.emit("joinRoom", data)
     }
 
     private fun sendChatting() {
