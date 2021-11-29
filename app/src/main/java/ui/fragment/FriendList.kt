@@ -68,7 +68,7 @@ class FriendList : Fragment() {
 
             add(FriendListData( name = "제발되라", content = "qwer", img = R.drawable.appicon))
 
-//            add(FriendListData( name = "안드로이드", content = "소켓 어렵다 ㅠ", img = R.drawable.flower))
+            add(FriendListData( name = "안드로이드", content = "소켓 어렵다 ㅠ", img = R.drawable.flower))
             Log.d("결과","성공")
 
             FriendListAdapter!!.datas = datas
