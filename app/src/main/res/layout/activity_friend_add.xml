@@ -102,6 +102,7 @@
         android:textSize="13sp"
         android:gravity="center_vertical"
         android:textColorHint="#858282"
+        android:textColor="@color/black"
         app:layout_constraintLeft_toLeftOf="@id/left_line3"
         app:layout_constraintRight_toRightOf="@id/right_line2"
         app:layout_constraintTop_toTopOf="@id/top_line6"
