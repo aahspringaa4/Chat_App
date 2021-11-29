@@ -33,7 +33,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.ibNext.setOnClickListener {
-            Login()
+//            Login()
+            startActivity(Intent(this@MainActivity, HomeActivity::class.java))
         }
 
         binding.tvJoin.setOnClickListener {
