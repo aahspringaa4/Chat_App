@@ -86,4 +86,5 @@ class ChattingActivity() : AppCompatActivity() {
             chatBody.value = ""
         }
     }
+
 }
