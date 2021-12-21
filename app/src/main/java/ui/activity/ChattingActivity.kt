@@ -98,7 +98,7 @@ class ChattingActivity() : AppCompatActivity() {
             val opts = IO.Options()
             opts.transports =
                 arrayOf(io.socket.engineio.client.transports.WebSocket.NAME) // xhr에러 방지
-            socket = IO.socket("https://api.eungyeol.live/chat", opts)
+            socket = IO.socket("https://api.private", opts)
             socket.io().on(Manager.EVENT_TRANSPORT, Emitter.Listener { args ->
                 val trans = args[0] as Transport
                 trans.on(Transport.EVENT_REQUEST_HEADERS) { // request 해더 넣는 부분
