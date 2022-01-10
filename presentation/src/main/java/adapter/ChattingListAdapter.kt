@@ -11,10 +11,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.chat_app.R
 import ui.activity.ChattingActivity
-import model.data.ChattingListData
+import com.example.ChattingListData
 
 class ChattingListAdapter(private val context: Context?) : RecyclerView.Adapter<ChattingListAdapter.ViewHolder>() {
-    var datas = mutableListOf<ChattingListData>()
+    var datas = mutableListOf<com.example.ChattingListData>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.chatting_item_view,parent,false)
@@ -34,7 +34,7 @@ class ChattingListAdapter(private val context: Context?) : RecyclerView.Adapter<
         private val imgProfile: ImageView = itemView.findViewById(R.id.profiles)
         private val tv_people: TextView = itemView.findViewById(R.id.people)
 
-        fun bind(item: ChattingListData) {
+        fun bind(item: com.example.ChattingListData) {
             tv_content.text = item.content
             tv_id.text = item.id
             tv_people.text = item.people

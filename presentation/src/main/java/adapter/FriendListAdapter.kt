@@ -11,10 +11,10 @@ import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.chat_app.R
 import ui.activity.ImageActivity
-import model.data.FriendListData
+import com.example.FriendListData
 
 class FriendListAdapter(private val context: Context?) : RecyclerView.Adapter<FriendListAdapter.ViewHolder>() {
-    var datas = mutableListOf<FriendListData>()
+    var datas = mutableListOf<com.example.FriendListData>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(context).inflate(R.layout.friend_item_view,parent,false)
@@ -33,7 +33,7 @@ class FriendListAdapter(private val context: Context?) : RecyclerView.Adapter<Fr
         private val tv_id: TextView = itemView.findViewById(R.id.id)
         private val imgProfile: ImageView = itemView.findViewById(R.id.profiles)
 
-        fun bind(item: FriendListData) {
+        fun bind(item: com.example.FriendListData) {
             tv_content.text = item.content
             tv_id.text = item.name
             Glide.with(itemView).load(item.img).into(imgProfile)

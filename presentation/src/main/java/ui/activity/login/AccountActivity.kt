@@ -6,9 +6,9 @@ import android.util.Log
 import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import com.example.chat_app.databinding.ActivityAccountBinding
-import model.dto.RequestRegisterDTO
-import model.dto.ResponseRegisterDTO
-import network.RetrofitClient
+import com.example.RequestRegisterDTO
+import com.example.ResponseRegisterDTO
+import com.example.api.RetrofitClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -66,14 +66,15 @@ class AccountActivity : AppCompatActivity() {
         Log.d("Error", "Error1")
         // 정보 저장
 
-        val requestRegister = RequestRegisterDTO(birth, phone, gender, name, id, password)
-        val retrofitClient = RetrofitClient.getInstance()
-        val apiService = RetrofitClient.getRetrofitInterface()
+        val requestRegister =
+            com.example.RequestRegisterDTO(birth, phone, gender, name, id, password)
+        val retrofitClient = com.example.api.RetrofitClient.getInstance()
+        val apiService = com.example.api.RetrofitClient.getRetrofitInterface()
 
-        apiService.Register(requestRegister).enqueue(object : Callback<ResponseRegisterDTO> {
+        apiService.Register(requestRegister).enqueue(object : Callback<com.example.ResponseRegisterDTO> {
             override fun onResponse(
-                call: Call<ResponseRegisterDTO?>,
-                response: Response<ResponseRegisterDTO?>
+                call: Call<com.example.ResponseRegisterDTO?>,
+                response: Response<com.example.ResponseRegisterDTO?>
             ) {
                 Log.d("Error", "Error")
                 if (response.code() != 404) {
@@ -104,7 +105,7 @@ class AccountActivity : AppCompatActivity() {
                 }
             }
 
-            override fun onFailure(call: Call<ResponseRegisterDTO?>, t: Throwable) {
+            override fun onFailure(call: Call<com.example.ResponseRegisterDTO?>, t: Throwable) {
                 Toast.makeText(
                     this@AccountActivity,
                     "예기치 못한 오류가 발생했습니다.\n고객센터에 문의해주세요.",

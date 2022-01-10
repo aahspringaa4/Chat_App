@@ -7,10 +7,10 @@ import android.view.inputmethod.InputMethodManager
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.chat_app.databinding.ActivityMainBinding
-import model.dto.RequestLoginDTO
-import model.dto.ResponseLoginDTO
-import network.ApiService
-import network.RetrofitClient
+import com.example.RequestLoginDTO
+import com.example.ResponseLoginDTO
+import com.example.api.ApiService
+import com.example.api.RetrofitClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -23,8 +23,8 @@ class MainActivity : AppCompatActivity() {
     var password: String? = null
     var data: String? = null
     var count: Int? = null
-    private var ApiService: ApiService? = null
-    private var retrofitClient: RetrofitClient? = null
+    private var ApiService: com.example.api.ApiService? = null
+    private var retrofitClient: com.example.api.RetrofitClient? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -74,16 +74,16 @@ class MainActivity : AppCompatActivity() {
         val password: String = binding.etPutPW.getText().toString()
 
         // 정보 저장
-        val requestLogin = RequestLoginDTO(id, password)
+        val requestLogin = com.example.RequestLoginDTO(id, password)
 
-        retrofitClient = RetrofitClient()
+        retrofitClient = com.example.api.RetrofitClient()
 
-        ApiService = RetrofitClient.getRetrofitInterface()
+        ApiService = com.example.api.RetrofitClient.getRetrofitInterface()
 
-        ApiService?.Login(requestLogin)?.enqueue(object : Callback<ResponseLoginDTO?> {
+        ApiService?.Login(requestLogin)?.enqueue(object : Callback<com.example.ResponseLoginDTO?> {
             override fun onResponse(
-                call: Call<ResponseLoginDTO?>,
-                response: Response<ResponseLoginDTO?>
+                call: Call<com.example.ResponseLoginDTO?>,
+                response: Response<com.example.ResponseLoginDTO?>
             ) {
                 Log.d("error", "error1")
                 if (response.isSuccessful && response.body() != null) {
@@ -104,7 +104,7 @@ class MainActivity : AppCompatActivity() {
                 }
             }
 
-            override fun onFailure(call: Call<ResponseLoginDTO?>?, t: Throwable?) {
+            override fun onFailure(call: Call<com.example.ResponseLoginDTO?>?, t: Throwable?) {
                 Log.d("error", "error10")
             }
         })

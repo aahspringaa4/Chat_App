@@ -9,15 +9,14 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.chat_app.R
 import com.example.chat_app.databinding.ActivityFriendListBinding
 import com.google.gson.JsonObject
-import model.data.FriendListData
-import model.dto.ResponseFriendListDTO
-import network.ApiService
-import network.RetrofitClient
+import com.example.FriendListData
+import com.example.ResponseFriendListDTO
+import com.example.api.ApiService
+import com.example.api.RetrofitClient
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -27,14 +26,14 @@ import ui.activity.FriendAddActivity
 class FriendList : Fragment() {
 
     lateinit var rv: RecyclerView
-    val datas = mutableListOf<FriendListData>()
+    val datas = mutableListOf<com.example.FriendListData>()
 
 
     lateinit var FriendListAdapter: FriendListAdapter
-    var arrayList: ArrayList<FriendListData>? = null
+    var arrayList: ArrayList<com.example.FriendListData>? = null
 
-    private var ApiService: ApiService? = null
-    private var retrofitClient: RetrofitClient? = null
+    private var ApiService: com.example.api.ApiService? = null
+    private var retrofitClient: com.example.api.RetrofitClient? = null
 
     private lateinit var binding: ActivityFriendListBinding
 
@@ -64,11 +63,29 @@ class FriendList : Fragment() {
 
 
         datas.apply {
-            add(FriendListData( name = "안진우", content = "1일 1커밋", img = R.drawable.dream))
+            add(
+                com.example.FriendListData(
+                    name = "안진우",
+                    content = "1일 1커밋",
+                    img = R.drawable.dream
+                )
+            )
 
-            add(FriendListData( name = "제발되라", content = "qwer", img = R.drawable.appicon))
+            add(
+                com.example.FriendListData(
+                    name = "제발되라",
+                    content = "qwer",
+                    img = R.drawable.appicon
+                )
+            )
 
-            add(FriendListData( name = "안드로이드", content = "소켓 어렵다 ㅠ", img = R.drawable.flower))
+            add(
+                com.example.FriendListData(
+                    name = "안드로이드",
+                    content = "소켓 어렵다 ㅠ",
+                    img = R.drawable.flower
+                )
+            )
             Log.d("결과","성공")
 
             FriendListAdapter!!.datas = datas
@@ -77,7 +94,7 @@ class FriendList : Fragment() {
         }
     }
 
-    private fun StartSetPost(serverResponse: ResponseFriendListDTO) {
+    private fun StartSetPost(serverResponse: com.example.ResponseFriendListDTO) {
         val totalElements: Int = serverResponse.getBoardInfos()!!.size
         for (i in 0 until totalElements) {
             val jsonObject: JsonObject? = serverResponse.getBoardInfos()?.get(i)
@@ -95,17 +112,17 @@ class FriendList : Fragment() {
         arrayList?.clear()
         FriendListAdapter?.notifyDataSetChanged()
 
-        retrofitClient = RetrofitClient()
+        retrofitClient = com.example.api.RetrofitClient()
 
-        ApiService = RetrofitClient.getRetrofitInterface()
+        ApiService = com.example.api.RetrofitClient.getRetrofitInterface()
 
-        val call: Call<ResponseFriendListDTO>? = ApiService?.FriendList(size = 10, page = 0)
-        call?.enqueue(object : Callback<ResponseFriendListDTO?> {
-            override fun onResponse(call: Call<ResponseFriendListDTO?>?, response: Response<ResponseFriendListDTO?>) {
-                StartSetPost(ResponseFriendListDTO())
+        val call: Call<com.example.ResponseFriendListDTO>? = ApiService?.FriendList(size = 10, page = 0)
+        call?.enqueue(object : Callback<com.example.ResponseFriendListDTO?> {
+            override fun onResponse(call: Call<com.example.ResponseFriendListDTO?>?, response: Response<com.example.ResponseFriendListDTO?>) {
+                StartSetPost(com.example.ResponseFriendListDTO())
             }
 
-            override fun onFailure(call: Call<ResponseFriendListDTO?>?, t: Throwable?) {
+            override fun onFailure(call: Call<com.example.ResponseFriendListDTO?>?, t: Throwable?) {
 
             }
         })

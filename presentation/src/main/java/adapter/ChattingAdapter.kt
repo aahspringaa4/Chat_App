@@ -6,10 +6,10 @@ import androidx.lifecycle.MutableLiveData
 import androidx.recyclerview.widget.RecyclerView
 import com.example.chat_app.databinding.ChatmeBinding
 import com.example.chat_app.databinding.ChatotherBinding
-import model.data.ChattingData
+import com.example.ChattingData
 
 @Suppress("UNREACHABLE_CODE")
-class ChattingAdapter(private val chattingList: MutableLiveData<List<ChattingData>>, private val index: Int) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+class ChattingAdapter(private val chattingList: MutableLiveData<List<com.example.ChattingData>>, private val index: Int) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
     private val MY_CHAT=0
     private val YOUR_CHAT=1
 

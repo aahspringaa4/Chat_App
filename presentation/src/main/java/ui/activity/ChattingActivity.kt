@@ -10,15 +10,15 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import io.socket.client.IO
 import io.socket.client.Manager
-import model.dto.RequestEnterChattingRoomDTO
-import model.dto.RequestSendMessageDTO
-import network.SocketApplication
+import com.example.RequestEnterChattingRoomDTO
+import com.example.RequestSendMessageDTO
+import com.example.socketapi.SocketApplication
 import io.socket.client.Socket
 import io.socket.emitter.Emitter
 import io.socket.engineio.client.Transport
-import model.data.ChattingData
-import model.dto.RequestLeaveChatDTO
-import network.RetrofitClient
+import com.example.ChattingData
+import com.example.RequestLeaveChatDTO
+import com.example.api.RetrofitClient
 import org.json.JSONObject
 import java.net.URISyntaxException
 
@@ -27,20 +27,20 @@ class ChattingActivity() : AppCompatActivity() {
     private lateinit var socket: Socket
     private lateinit var binding: ActivityChattingBinding
     private lateinit var chatting: Array<String>
-    private val adapter = RetrofitClient.getRetrofitInterface()
+    private val adapter = com.example.api.RetrofitClient.getRetrofitInterface()
     private val chatBody = MutableLiveData<String>()
-    private var saveChat = mutableListOf<ChattingData>()
-    private val chattingList = MutableLiveData<List<ChattingData>>()
+    private var saveChat = mutableListOf<com.example.ChattingData>()
+    private val chattingList = MutableLiveData<List<com.example.ChattingData>>()
     private var index = 0
     private val chattingListAdapter = ChattingAdapter(chattingList, index)
-    private var readChattingList = mutableListOf<ChattingData>()
+    private var readChattingList = mutableListOf<com.example.ChattingData>()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityChattingBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        socket = SocketApplication.get()
+        socket = com.example.socketapi.SocketApplication.get()
         socket.connect()
 
         binding.btSend.setOnClickListener {
@@ -54,7 +54,7 @@ class ChattingActivity() : AppCompatActivity() {
     override fun onDestroy() {
         super.onDestroy()
         try {
-            val data = RequestLeaveChatDTO()
+            val data = com.example.RequestLeaveChatDTO()
             socket.emit("leaveRoom", data)
         }finally {
 
@@ -80,14 +80,14 @@ class ChattingActivity() : AppCompatActivity() {
     }
 
     private fun joinRoom() {
-        val data = RequestEnterChattingRoomDTO()
+        val data = com.example.RequestEnterChattingRoomDTO()
         socket.emit("joinRoom", data)
     }
 
     private fun sendChatting() {
         if(!chatBody.value.isNullOrEmpty()){
             val message = chatBody.value
-            val data = message?.let { RequestSendMessageDTO(messages = it) }
+            val data = message?.let { com.example.RequestSendMessageDTO(messages = it) }
             socket.emit("sendMessage", data)
             chatBody.value = ""
         }
@@ -151,7 +151,7 @@ class ChattingActivity() : AppCompatActivity() {
         }
 
         try {
-            chatInfo = ChattingData(title,msg,result,user_type,date)
+            chatInfo = com.example.ChattingData(title, msg, result, user_type, date)
             possingChat.add(chatInfo)
             chattingList.postValue(possingChat)
             chattingListAdapter.notifyDataSetChanged()
