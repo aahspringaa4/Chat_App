@@ -1,4 +1,4 @@
-package com.example.remote
+package com.example.domain
 
 import ui.activity.ChattingActivity
 

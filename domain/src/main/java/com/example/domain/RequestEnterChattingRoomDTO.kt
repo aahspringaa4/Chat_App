@@ -1,4 +1,4 @@
-package com.example.remote
+package com.example.domain
 
 data class RequestEnterChattingRoomDTO(
     val chattingRoomId: String = "adfbeefc-3307-4ccd-8dbf-3aa2401e4781",

@@ -1,4 +1,4 @@
-package com.example.remote
+package com.example.domain
 
 data class Data(
     val accessToken: String,
