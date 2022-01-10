@@ -1,4 +1,4 @@
-package com.example
+package com.example.datasource
 
 class FriendListData(
     val name: String,

@@ -1,4 +1,4 @@
-package model.dto
+package com.example.remote
 
 data class RequestRegisterDTO(
     val birth: String,

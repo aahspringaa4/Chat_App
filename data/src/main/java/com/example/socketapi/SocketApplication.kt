@@ -1,4 +1,4 @@
-package network
+package com.example.socketapi
 
 import android.app.Application
 import io.socket.client.IO

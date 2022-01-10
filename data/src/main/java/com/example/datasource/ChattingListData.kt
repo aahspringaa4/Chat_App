@@ -1,4 +1,4 @@
-package com.example
+package com.example.datasource
 
 class ChattingListData (
     val id : String,

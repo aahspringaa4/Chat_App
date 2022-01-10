@@ -1,4 +1,4 @@
-package model.dto
+package com.example.remote
 
 import com.google.gson.JsonObject
 

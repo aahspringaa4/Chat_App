@@ -1,4 +1,4 @@
-package model.dto
+package com.example.remote
 
 data class RequestLoginDTO(
     val id: String,

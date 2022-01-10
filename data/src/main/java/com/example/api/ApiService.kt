@@ -1,4 +1,4 @@
-package network
+package com.example.api
 
 import io.reactivex.Single
 import com.example.ChattingData
@@ -13,32 +13,32 @@ interface ApiService {
     // 로그인
     @POST("api/auth/login")
     fun Login(
-        @Body requestLoginDTO: RequestLoginDTO
-    ): Call<ResponseLoginDTO>
+        @Body requestLoginDTO: com.example.RequestLoginDTO
+    ): Call<com.example.ResponseLoginDTO>
 
     // 회원가입
     @POST("api/auth/signup")
     fun Register(
-        @Body requestRegister: RequestRegisterDTO
-    ): Call<ResponseRegisterDTO>
+        @Body requestRegister: com.example.RequestRegisterDTO
+    ): Call<com.example.ResponseRegisterDTO>
 
     // 친구 추가
     @POST("api/friend/apply/{memberId}")
     fun FriendApply(
         // Id 전송
         @Path("memberId") memberId: String
-    ): Call<RequestFriendListDTO> // 오류 방지
+    ): Call<com.example.RequestFriendListDTO> // 오류 방지
 
     @GET("api/friend")
     fun FriendList(
         @Query("size") size : Int?,
         @Query("page") page : Int?
-    ): Call<ResponseFriendListDTO>
+    ): Call<com.example.ResponseFriendListDTO>
 
     @GET("api/mypage/chattingroom")
     fun ChatRoomList(
-        @Body chattingListDTO: RequestChattingListDTO
-    ): Call<ResponseChattingListDTO>
+        @Body chattingListDTO: com.example.RequestChattingListDTO
+    ): Call<com.example.ResponseChattingListDTO>
 
     @GET("api/message/{chattingRoomId}/{count}")
     fun getChatting(
