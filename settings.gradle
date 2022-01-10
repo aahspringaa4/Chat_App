@@ -1,2 +1,4 @@
 rootProject.name = "Chat_App"
-include ':app'
+include ':presentation'
+include ':data'
+include ':domain'
