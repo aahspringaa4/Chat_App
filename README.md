@@ -4,7 +4,7 @@
 
 * 언어 : Kotlin
 * 아키텍쳐 : Clean Architecture
-* 라이브러리 : Retrofit2, SocketIo, RxJava, Koin, Coroutine, LiveData, DataBinding
+* 라이브러리 : Retrofit2, Socket.Io, RxJava, Koin, Coroutine, LiveData, DataBinding
 
 ### Tool
 ---
